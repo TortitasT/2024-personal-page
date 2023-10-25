@@ -7,7 +7,7 @@ function loadShader() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
-  import("../public/cursorFluidShader.js");
+  import("../lib/cursorFluidShader.js");
 }
 
 class CursorFluidShader extends Component {
