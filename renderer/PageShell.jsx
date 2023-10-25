@@ -10,7 +10,7 @@ function PageShell({ pageContext, children }) {
     <PageContextProvider pageContext={pageContext}>
       {/* <Header url={pageContext.urlPathname} /> */}
       <CursorFluidShader />
-      <main>{children}</main>
+      <main className="flex-1 flex">{children}</main>
     </PageContextProvider>
   );
 }
