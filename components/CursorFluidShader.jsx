@@ -4,8 +4,14 @@ export { CursorFluidShader };
 
 function loadShader() {
   const canvas = document.querySelector("canvas");
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  canvas.width = Math.max(
+    window.innerWidth,
+    document.documentElement.clientWidth
+  );
+  canvas.height = Math.max(
+    window.innerHeight,
+    document.documentElement.clientHeight
+  );
 
   import("../lib/cursorFluidShader.js");
 }
