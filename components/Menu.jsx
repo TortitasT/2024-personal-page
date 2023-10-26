@@ -3,12 +3,14 @@ import { gsap } from "gsap";
 
 export { Menu };
 
-const ButtonState = {
-  OPEN: 0,
-  CLOSED: 1,
-};
-
 function Menu() {
+  const DURATION = 0.3;
+
+  const ButtonState = {
+    OPEN: 0,
+    CLOSED: 1,
+  };
+
   const button = useRef();
   let buttonState = ButtonState.CLOSED;
 
@@ -23,15 +25,15 @@ function Menu() {
         : ButtonState.CLOSED;
 
     if (buttonState === ButtonState.OPEN) {
-      gsap.to(bar1, { rotate: -45, y: 11, duration: 0.3 });
-      gsap.to(bar2, { opacity: 0, duration: 0.3 });
-      gsap.to(bar3, { rotate: 45, y: -11, duration: 0.3 });
-    }
+      const y = button.current.getBoundingClientRect().y / 2.5;
 
-    if (buttonState === ButtonState.CLOSED) {
-      gsap.to(bar1, { rotate: 0, y: 0, duration: 0.3 });
-      gsap.to(bar2, { opacity: 1, duration: 0.3 });
-      gsap.to(bar3, { rotate: 0, y: 0, duration: 0.3 });
+      gsap.to(bar1, { rotate: -45, y, duration: DURATION });
+      gsap.to(bar2, { opacity: 0, duration: DURATION });
+      gsap.to(bar3, { rotate: 45, y: -y, duration: DURATION });
+    } else if (buttonState === ButtonState.CLOSED) {
+      gsap.to(bar1, { rotate: 0, y: 0, duration: DURATION });
+      gsap.to(bar2, { opacity: 1, duration: DURATION });
+      gsap.to(bar3, { rotate: 0, y: 0, duration: DURATION });
     }
   }
 
