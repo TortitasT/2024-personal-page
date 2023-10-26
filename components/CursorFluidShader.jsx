@@ -6,11 +6,13 @@ function loadShader() {
   const canvas = document.querySelector("canvas");
   canvas.width = Math.max(
     window.innerWidth,
-    document.documentElement.clientWidth
+    document.documentElement.clientWidth,
+    document.body.scrollWidth
   );
   canvas.height = Math.max(
     window.innerHeight,
-    document.documentElement.clientHeight
+    document.documentElement.clientHeight,
+    document.body.scrollHeight
   );
 
   import("../lib/cursorFluidShader.js");
