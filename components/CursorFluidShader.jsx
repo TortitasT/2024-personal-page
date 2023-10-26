@@ -28,6 +28,6 @@ class CursorFluidShader extends Component {
   }
 
   render() {
-    return <canvas className="absolute"></canvas>;
+    return <canvas className="absolute -z-10"></canvas>;
   }
 }
