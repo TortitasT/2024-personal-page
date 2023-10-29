@@ -1,4 +1,4 @@
-import preactLogo from "../assets/preact.svg";
+import { Quote } from "../../components/Quote.jsx";
 
 export function Page() {
   return (
@@ -9,6 +9,8 @@ export function Page() {
       <div className="mix-blend-color-dodge">
         <h2>overcomplicated and excessive</h2>
       </div>
+
+      <Quote />
     </main>
   );
 }
