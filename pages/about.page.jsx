@@ -1,34 +1,30 @@
 export function Page() {
   return (
-    <main className="p-6 flex flex-col gap-3 max-w-xl text-justify">
+    <main className="p-6 flex flex-col gap-3 max-w-xl text-justify mix-blend-exclusion">
       <h1 className="text-6xl">about</h1>
 
       <p>
-        {" "}
-        Hi, I'm Tortitas, a web developer, indie game developer and{" "}
-        <span class="text--deno">Deno</span> enthusiast. Check me out on{" "}
+        Hi, I'm Victor Garcia, a web developer, indie game developer and
+        programming enthusiast. Check me out on{" "}
         <a href="https://github.com/tortitast" target="_blank">
           Github
         </a>{" "}
-        to see all my work.{" "}
+        to see all my work.
       </p>
       <p>
-        {" "}
-        I work as a junior developer at{" "}
+        I work as a developer at{" "}
         <a href="https://descom.es" target="_blank">
           Descom.es
         </a>
-        , a software company from La Nucia, Spain. There I work with{" "}
+        , a software company from La Nucia, Spain. Where I work with{" "}
         <span class="text--aws">AWS</span>,{" "}
-        <span class="text--nuxt">Nuxt.js</span>,{" "}
-        <span class="text--node">Node.js</span>,{" "}
-        <span class="text--php">PHP</span> and{" "}
-        <span class="text--laravel">Laravel</span>.{" "}
+        <span class="text--nuxt">Nuxt.js</span> and{" "}
+        <span class="text--laravel">Laravel</span>.
       </p>
       <p>
-        {" "}
-        In my free time I make videogames and weird projects in{" "}
-        <span class="text--deno">Deno</span>, you can check my games out in my{" "}
+        In my free time I make projects in <span class="text--rust">Rust</span>,{" "}
+        <span class="text--go">Go</span> and many more interesting technologies,
+        you can check my games out in my{" "}
         <a href="https://tortitas.itch.io/" target="_blank">
           itch.io
         </a>{" "}

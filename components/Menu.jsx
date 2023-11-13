@@ -11,14 +11,6 @@ function Menu() {
   const buttonBar1 = useRef();
   const buttonBar2 = useRef();
   const buttonBar3 = useRef();
-  // const timeline = gsap.timeline({
-  //   defaults: {
-  //     ease: "power4.inOut",
-  //     onInterrupt: () => {
-  //       timeline.kill();
-  //     },
-  //   },
-  // });
   let buttonState = false;
 
   useEffect(() => {
@@ -71,14 +63,14 @@ function Menu() {
         className="flex flex-col gap-2 absolute top-16 right-6 text-xl"
         style="transition: none 0s ease 0s; transform: translate(100px); translate: none; rotate: none; scale: none; opacity: 0;"
       >
-        <a href="about" className="text-white">
+        <a href="/" className="text-white">
+          Home
+        </a>
+        <a href="/about" className="text-white">
           About
         </a>
-        <a href="#projects" className="text-white">
+        <a href="/projects" className="text-white">
           Projects
-        </a>
-        <a href="#contact" className="text-white">
-          Contact
         </a>
       </nav>
     </div>
