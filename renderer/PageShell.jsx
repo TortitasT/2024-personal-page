@@ -1,5 +1,5 @@
 import { PageContextProvider } from "./usePageContext";
-import "./PageShell.css";
+import "./main.css";
 import { Component, render } from "preact";
 import { CursorFluidShader } from "../components/CursorFluidShader.jsx";
 import { Menu } from "../components/Menu.jsx";

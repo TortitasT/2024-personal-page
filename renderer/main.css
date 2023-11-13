@@ -41,3 +41,23 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+.text--aws {
+  color: #ff9900;
+}
+
+.text--nuxt {
+  color: #00c58e;
+}
+
+.text--laravel {
+  color: #ff2d20;
+}
+
+.text--rust {
+  color: #ef4a00;
+}
+
+.text--go {
+  color: #00acd7;
+}
