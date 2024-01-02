@@ -1,57 +1,57 @@
-import { useRef, useEffect } from "preact/hooks";
-import { gsap } from "gsap";
+import { useRef, useEffect } from 'preact/hooks'
+import { gsap } from 'gsap'
 
-export { Menu };
+export { Menu }
 
 function Menu() {
-  const DURATION = 0.3;
+  const DURATION = 0.3
 
-  const menu = useRef();
-  const button = useRef();
-  const buttonBar1 = useRef();
-  const buttonBar2 = useRef();
-  const buttonBar3 = useRef();
-  let buttonState = false;
+  const menu = useRef()
+  const button = useRef()
+  const buttonBar1 = useRef()
+  const buttonBar2 = useRef()
+  const buttonBar3 = useRef()
+  let buttonState = false
 
   useEffect(() => {
-    gsap.set(menu.current, { opacity: 0, x: 100 });
-  }, []);
+    gsap.set(menu.current, { opacity: 0, x: 100 })
+  }, [])
 
   function openButton() {
-    const y = button.current.getBoundingClientRect().y / 2.5;
+    const y = button.current.getBoundingClientRect().y / 2.5
 
-    gsap.to(buttonBar1.current, { rotate: -45, y, duration: DURATION });
-    gsap.to(buttonBar2.current, { opacity: 0, duration: DURATION });
-    gsap.to(buttonBar3.current, { rotate: 45, y: -y, duration: DURATION });
+    gsap.to(buttonBar1.current, { rotate: -45, y, duration: DURATION })
+    gsap.to(buttonBar2.current, { opacity: 0, duration: DURATION })
+    gsap.to(buttonBar3.current, { rotate: 45, y: -y, duration: DURATION })
 
-    openMenu();
+    openMenu()
   }
 
   function closeButton() {
-    const y = button.current.getBoundingClientRect().y / 2.5;
+    const y = button.current.getBoundingClientRect().y / 2.5
 
-    gsap.to(buttonBar1.current, { rotate: 0, y: 0, duration: DURATION });
-    gsap.to(buttonBar2.current, { opacity: 1, duration: DURATION });
-    gsap.to(buttonBar3.current, { rotate: 0, y: 0, duration: DURATION });
+    gsap.to(buttonBar1.current, { rotate: 0, y: 0, duration: DURATION })
+    gsap.to(buttonBar2.current, { opacity: 1, duration: DURATION })
+    gsap.to(buttonBar3.current, { rotate: 0, y: 0, duration: DURATION })
 
-    closeMenu();
+    closeMenu()
   }
 
   function openMenu() {
-    gsap.to(menu.current, { opacity: 1, x: 0, duration: DURATION });
+    gsap.to(menu.current, { opacity: 1, x: 0, duration: DURATION })
   }
 
   function closeMenu() {
-    gsap.to(menu.current, { opacity: 0, x: 100, duration: DURATION });
+    gsap.to(menu.current, { opacity: 0, x: 100, duration: DURATION })
   }
 
   function toggleMenu() {
-    buttonState ? closeButton() : openButton();
-    buttonState = !buttonState;
+    buttonState ? closeButton() : openButton()
+    buttonState = !buttonState
   }
 
   return (
-    <div className="mix-blend-exclusion p-6 flex justify-end sticky">
+    <div className="mix-blend-exclusion p-6 flex justify-end sticky z-10">
       <button ref={button} onClick={toggleMenu} className="flex flex-col gap-2">
         <div ref={buttonBar1} className="w-6 h-[2px] bg-white"></div>
         <div ref={buttonBar2} className="w-6 h-[2px] bg-white"></div>
@@ -74,5 +74,5 @@ function Menu() {
         </a>
       </nav>
     </div>
-  );
+  )
 }

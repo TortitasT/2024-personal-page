@@ -1,10 +1,10 @@
-import { PageContextProvider } from "./usePageContext";
-import "./main.css";
-import { Component, render } from "preact";
-import { CursorFluidShader } from "../components/CursorFluidShader.jsx";
-import { Menu } from "../components/Menu.jsx";
+import { PageContextProvider } from './usePageContext'
+import './main.css'
+import { Component, render } from 'preact'
+import { CursorFluidShader } from '../components/CursorFluidShader.jsx'
+import { Menu } from '../components/Menu.jsx'
 
-export { PageShell };
+export { PageShell }
 
 function PageShell({ pageContext, children }) {
   return (
@@ -13,5 +13,5 @@ function PageShell({ pageContext, children }) {
       <CursorFluidShader />
       {children}
     </PageContextProvider>
-  );
+  )
 }

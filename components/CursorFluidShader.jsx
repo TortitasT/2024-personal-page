@@ -1,33 +1,33 @@
-import { Component } from "preact";
+import { Component } from 'preact'
 
-export { CursorFluidShader };
+export { CursorFluidShader }
 
 function loadShader() {
-  const canvas = document.querySelector("canvas");
+  const canvas = document.querySelector('canvas')
   canvas.width = Math.max(
     window.innerWidth,
     document.documentElement.clientWidth,
     document.body.scrollWidth
-  );
+  )
   canvas.height = Math.max(
     window.innerHeight,
     document.documentElement.clientHeight,
     document.body.scrollHeight
-  );
+  )
 
-  import("../lib/cursorFluidShader.js");
+  import('../lib/cursorFluidShader.js')
 }
 
 class CursorFluidShader extends Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   componentDidMount() {
-    loadShader();
+    loadShader()
   }
 
   render() {
-    return <canvas className="absolute -z-10"></canvas>;
+    return <canvas className="absolute -z-10"></canvas>
   }
 }

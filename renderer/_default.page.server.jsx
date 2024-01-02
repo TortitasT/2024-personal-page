@@ -1,28 +1,28 @@
-export { render };
+export { render }
 // See https://vike.dev/data-fetching
-export const passToClient = ["pageProps", "urlPathname"];
+export const passToClient = ['pageProps', 'urlPathname']
 
-import { renderToString } from "preact-render-to-string";
-import { PageShell } from "./PageShell";
-import { escapeInject, dangerouslySkipEscape } from "vike/server";
+import { renderToString } from 'preact-render-to-string'
+import { PageShell } from './PageShell'
+import { escapeInject, dangerouslySkipEscape } from 'vike/server'
 
 async function render(pageContext) {
-  const { Page, pageProps } = pageContext;
+  const { Page, pageProps } = pageContext
   // This render() hook only supports SSR, see https://vike.dev/render-modes for how to modify render() to support SPA
   if (!Page)
-    throw new Error("My render() hook expects pageContext.Page to be defined");
+    throw new Error('My render() hook expects pageContext.Page to be defined')
   const pageHtml = renderToString(
     <PageShell pageContext={pageContext}>
       <Page {...pageProps} />
     </PageShell>
-  );
+  )
 
   // See https://vike.dev/head
-  const { documentProps } = pageContext.exports;
-  const title = (documentProps && documentProps.title) || "Víctor García";
+  const { documentProps } = pageContext.exports
+  const title = (documentProps && documentProps.title) || 'Víctor García'
   const desc =
     (documentProps && documentProps.description) ||
-    "Developer, designer, and student from Spain.";
+    'Developer, designer, and student from Spain.'
 
   const documentHtml = escapeInject`<!DOCTYPE html>
 		<html lang="en">
@@ -40,12 +40,12 @@ async function render(pageContext) {
 		<body>
 			<div id="app">${dangerouslySkipEscape(pageHtml)}</div>
 		</body>
-		</html>`;
+		</html>`
 
   return {
     documentHtml,
     pageContext: {
       // We can add some `pageContext` here, which is useful if we want to do page redirection https://vike.dev/page-redirection
     },
-  };
+  }
 }

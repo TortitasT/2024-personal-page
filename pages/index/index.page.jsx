@@ -1,4 +1,4 @@
-import { Quote } from "../../components/Quote.jsx";
+import { Quote } from '../../components/Quote.jsx'
 
 export function Page() {
   return (
@@ -12,5 +12,5 @@ export function Page() {
 
       <Quote />
     </main>
-  );
+  )
 }

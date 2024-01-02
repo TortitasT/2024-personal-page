@@ -1,4 +1,4 @@
-export { Quote };
+export { Quote }
 
 function Quote() {
   return (
@@ -8,5 +8,5 @@ function Quote() {
         <small>Leonardo da Vinci</small>
       </p>
     </div>
-  );
+  )
 }
