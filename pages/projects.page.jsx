@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect, useRef } from 'preact/hooks'
 import { Search } from '../components/Search.jsx'
+import { similarity } from '../lib/similarity.js'
 
 import tech from '../public/tech.json'
 import projects from '../public/projects.json'
@@ -14,6 +15,8 @@ function SearchResults({
   removeLastFilter,
 }) {
   const [selected, setSelected] = useState(0)
+  const [selectedModifiedByKeyboard, setSelectedModifiedByKeyboard] =
+    useState(false)
   const scrollElement = useRef(null)
 
   let backspaceCount = 0
@@ -27,6 +30,7 @@ function SearchResults({
           return
         }
 
+        setSelectedModifiedByKeyboard(true)
         setSelected((selected) => selected + 1)
       }
 
@@ -37,6 +41,7 @@ function SearchResults({
           return
         }
 
+        setSelectedModifiedByKeyboard(true)
         setSelected((selected) => selected - 1)
       }
 
@@ -66,18 +71,22 @@ function SearchResults({
       setSelected(filteredSearch.length - 1)
     }
 
-    setTimeout(() => {
-      const selectedElement = scrollElement.current?.children[selected] ?? null
+    if (selectedModifiedByKeyboard) {
+      setTimeout(() => {
+        const selectedElement =
+          scrollElement.current?.children[selected] ?? null
+        if (!selectedElement) {
+          return
+        }
 
-      if (!selectedElement) {
-        return
-      }
+        scrollElement.current.scrollTo({
+          top: selectedElement.offsetTop - 500,
+          behavior: 'smooth',
+        })
 
-      scrollElement.current.scrollTo({
-        top: selectedElement.offsetTop - 500,
-        behavior: 'smooth',
+        setSelectedModifiedByKeyboard(false)
       })
-    })
+    }
 
     window.addEventListener('keydown', keydownCallback)
     return () => {
@@ -98,10 +107,13 @@ function SearchResults({
         return (
           <div
             className={
-              'flex items-center justify-between gap-2 p-2 text-sm' +
+              'flex items-center justify-between gap-2 cursor-pointer p-2 text-sm' +
               (selected === index ? ' bg-gray-400/20 rounded-md' : '')
             }
-            onClick={() => setSelected(index)}
+            onClick={(e) => {
+              addFilter(technology)
+            }}
+            onMouseEnter={() => setSelected(index)}
           >
             <div className="flex flex-col gap-1">
               <h2>{technology.name}</h2>
@@ -172,8 +184,14 @@ export function Page() {
       .filter((technology) => {
         return !filters.find((filter) => filter.name === technology.name)
       })
-      .filter((technology) => {
-        return technology.name.toLowerCase().includes(search.toLowerCase())
+      .map((technology) => {
+        return {
+          ...technology,
+          score: similarity(technology.name, search.toLowerCase()),
+        }
+      })
+      .sort((a, b) => {
+        return b.score - a.score
       })
   })
 
@@ -230,7 +248,11 @@ export function Page() {
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2">
         {filteredProjects.map((project) => {
           return (
-            <div className="p-4 grid grid-cols-3 auto-rows-fr gap-2 border-primary bg-black">
+            <a
+              href={project.url}
+              target="_blank"
+              className="cursor-pointer p-4 grid grid-cols-3 auto-rows-fr gap-2 border-primary bg-black"
+            >
               <div className="col-span-2 w-max">
                 <h2 className="text-2xl">{project.name}</h2>
                 <small className="text-sm opacity-50">
@@ -247,7 +269,7 @@ export function Page() {
               </div>
 
               <p className="text-sm mt-2 col-span-3">{project.description}</p>
-            </div>
+            </a>
           )
         })}
       </div>

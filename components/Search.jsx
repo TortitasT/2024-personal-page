@@ -1,6 +1,18 @@
 export { Search }
 
+import { useEffect, useRef } from 'preact/hooks'
+
 function Search({ setSearch, search }) {
+  const input = useRef(null)
+
+  useEffect(() => {
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        input.current?.blur()
+      }
+    })
+  })
+
   return (
     <div className="border-primary flex items-center">
       <svg
@@ -25,6 +37,7 @@ function Search({ setSearch, search }) {
         placeholder="Search technologies, projects, etc."
         tabIndex={1}
         value={search}
+        ref={input}
         onInput={(e) => setSearch(e.target.value)}
       />
       <div className="p-1 mr-2 border-primary text-[0.6rem] font-sans">
