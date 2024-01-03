@@ -5,7 +5,7 @@ import tech from '../public/tech.json'
 
 const SHOWN_CATEGORIES = ['Language', 'Framework', 'Library']
 
-function SearchResults({ show, filteredSearch }) {
+function SearchResults({ show, filteredSearch, addFilter }) {
   if (!show) {
     return
   }
@@ -34,6 +34,16 @@ function SearchResults({ show, filteredSearch }) {
 
         setSelected((selected) => selected - 1)
       }
+
+      if (e.key === 'Enter') {
+        const selectedTechnology = filteredSearch[selected]
+
+        if (!selectedTechnology) {
+          return
+        }
+
+        addFilter(selectedTechnology)
+      }
     }
 
     if (selected > filteredSearch.length - 1 && filteredSearch.length > 0) {
@@ -61,7 +71,7 @@ function SearchResults({ show, filteredSearch }) {
 
   return (
     <div
-      className="flex flex-col gap-2 mt-4 max-h-[50vh] overflow-y-auto"
+      className="flex flex-col gap-2 mt-2 max-h-[50vh] overflow-y-auto"
       ref={scrollElement}
     >
       {filteredSearch.map((technology, index) => {
@@ -82,11 +92,26 @@ function SearchResults({ show, filteredSearch }) {
   )
 }
 
+function SearchFilters({ filters, removeFilter }) {
+  return (
+    <div className="flex flex-wrap gap-2 mt-2">
+      {filters.map((technology) => {
+        return (
+          <div className="p-1 border-primary text-[0.6rem]">
+            {technology.name}
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
 export function Page() {
   const [search, setSearch] = useState('')
   const [filteredTech, setFilteredTech] = useState(
     tech.filter((technology) => SHOWN_CATEGORIES.includes(technology.category))
   )
+  const [filters, setFilters] = useState([])
 
   const filteredSearch = useMemo(() => {
     return filteredTech.filter((technology) => {
@@ -101,15 +126,32 @@ export function Page() {
       <div className="p-4 border-primary">
         <Search setSearch={setSearch} />
 
+        <SearchFilters
+          filters={filters}
+          removeFilter={(technology) => {
+            setFilters((filters) =>
+              filters.filter((filter) => filter.name !== technology.name)
+            )
+          }}
+        />
+
         <SearchResults
           show={search.length > 0}
           filteredSearch={filteredSearch}
+          addFilter={(technology) => {
+            const alreadyFiltered = filters.find(
+              (filter) => filter.name === technology.name
+            )
+
+            if (alreadyFiltered) {
+              return
+            }
+
+            setFilters((filters) => [...filters, technology])
+            setSearch('')
+          }}
         />
       </div>
-
-      {/* <pre>{JSON.stringify(categories, null, 2)}</pre> */}
-
-      {/* <pre>{JSON.stringify(tech, null, 2)}</pre> */}
     </main>
   )
 }
