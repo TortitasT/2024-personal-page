@@ -9,7 +9,8 @@
     "prettier": "prettier --write .",
     "bin:compile": "tsc -p ./bin --outDir ./bin/dist",
     "bin:download-tech": "pnpm run bin:compile && node --enable-source-maps ./bin/dist/download-tech.js",
-    "bin:download-projects": "pnpm run bin:compile && node --enable-source-maps ./bin/dist/download-projects.js"
+    "bin:download-projects": "pnpm run bin:compile && node --enable-source-maps ./bin/dist/download-projects.js",
+    "bin:download-all": "pnpm run bin:download-tech && pnpm run bin:download-projects"
   },
   "dependencies": {
     "gsap": "^3.12.2",
