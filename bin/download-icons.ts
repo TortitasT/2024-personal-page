@@ -1,29 +1,36 @@
 import * as fs from 'fs'
 
+type route = string | { dark: string; light: string }
+
 interface svg {
   id: number
   title: string
   category: string
-  route:
-    | string
-    | {
-        dark: string
-        light: string
-      }
+  route: route
+  url: string
+}
+
+interface tech {
+  name: string
+  icon: route
+  category: string
   url: string
 }
 
 const DIR = './public/tech'
+const techs: tech[] = []
 
 async function handleSingleIcon(
   filename: string,
   route: string
-): Promise<void> {
+): Promise<route> {
   try {
     const data = await fetch(route).then((res) => res.text())
-    fs.writeFileSync(`${DIR}/${filename}.svg`, data)
+    const localRoute = `${DIR}/${filename}.svg`
+    fs.writeFileSync(localRoute, data)
 
     console.log(`Downloaded ${filename}`)
+    return localRoute
   } catch (error) {
     if (error.code === 'UND_ERR_CONNECT_TIMEOUT') {
       return handleSingleIcon(filename, route)
@@ -37,36 +44,46 @@ async function handleMultipleIcons(
     dark: string
     light: string
   }
-): Promise<void> {
-  try {
-    const { dark, light } = route
+): Promise<route> {
+  const { dark, light } = route
 
-    const darkData = fetch(dark)
-      .then((res) => res.text())
-      .then((data) => {
-        fs.writeFileSync(`${DIR}/${filename}-dark.svg`, data)
-      })
-
-    const lightData = fetch(light)
-      .then((res) => res.text())
-      .then((data) => {
-        fs.writeFileSync(`${DIR}/${filename}-light.svg`, data)
-      })
-
-    await Promise.all([darkData, lightData]).catch((e) => {
-      if (e.code === 'UND_ERR_CONNECT_TIMEOUT') {
-        return handleMultipleIcons(filename, route)
-      }
+  const darkPromise = fetch(dark)
+    .then((res) => res.text())
+    .then((data) => {
+      const localRoute = `${DIR}/${filename}-dark.svg`
+      fs.writeFileSync(localRoute, data)
+      return localRoute
     })
 
-    console.log(`Downloaded ${filename}`)
-  } catch (error) {
-    console.warn(error, route)
+  const lightPromise = fetch(light)
+    .then((res) => res.text())
+    .then((data) => {
+      const localRoute = `${DIR}/${filename}-light.svg`
+      fs.writeFileSync(localRoute, data)
+      return localRoute
+    })
+
+  const result = await Promise.all([darkPromise, lightPromise])
+    .then(([darkRoute, lightRoute]: [string, string]) => {
+      return {
+        dark: darkRoute,
+        light: lightRoute,
+      } as route
+    })
+    .catch((error) => {
+      return null
+    })
+
+  if (!result) {
+    return handleMultipleIcons(filename, route)
   }
+
+  console.log(`Downloaded ${filename}`)
+  return result
 }
 
 async function handleIcon(icon: svg): Promise<void> {
-  const { id, title, route } = icon
+  const { id, title, route, category, url } = icon
 
   const hasDarkMode = typeof route === 'object'
   const filename = title
@@ -75,11 +92,16 @@ async function handleIcon(icon: svg): Promise<void> {
     .replace('/', '-')
     .replace('+', '')
 
-  if (hasDarkMode) {
-    return await handleMultipleIcons(filename, route)
-  }
+  const localRoute = hasDarkMode
+    ? await handleMultipleIcons(filename, route)
+    : await handleSingleIcon(filename, route)
 
-  return await handleSingleIcon(filename, route)
+  techs.push({
+    name: title,
+    icon: localRoute,
+    category,
+    url,
+  })
 }
 
 async function handleIcons(icons: svg[]) {
@@ -103,4 +125,5 @@ fs.mkdirSync(DIR, { recursive: true })
 const icons = await fetchIcons()
 await handleIcons(icons)
 
+fs.writeFileSync('./public/tech.json', JSON.stringify(techs, null, 2), 'utf-8')
 console.log('Done!')
