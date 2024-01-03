@@ -55,7 +55,11 @@ async function main() {
   for (const repo of repos) {
     try {
       const languages = await getRepositoryLanguages('tortitast', repo.name)
-      const technologies = Object.keys(languages)
+
+      const technologies = [
+        ...Object.keys(languages),
+        ...(repo.topics ?? []),
+      ].filter((value, index, self) => self.indexOf(value) === index)
 
       saveProject({
         name: repo.name,
