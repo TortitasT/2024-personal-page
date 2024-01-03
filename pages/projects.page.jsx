@@ -78,13 +78,29 @@ function SearchResults({ show, filteredSearch, addFilter }) {
         return (
           <div
             className={
-              'flex flex-col gap-1 p-2 text-sm' +
+              'flex items-center justify-between gap-2 p-2 text-sm' +
               (selected === index ? ' bg-gray-400/20 rounded-md' : '')
             }
             onClick={() => setSelected(index)}
           >
-            <h2>{technology.name}</h2>
-            <small>{technology.category}</small>
+            <div className="flex flex-col gap-1">
+              <h2>{technology.name}</h2>
+              <small>{technology.category}</small>
+            </div>
+            {technology.icon && (
+              <img
+                src={
+                  new URL(
+                    technology.icon?.dark || false
+                      ? technology.icon.dark
+                      : technology.icon,
+                    import.meta.url.replace('pages', '')
+                  ).href
+                }
+                className="h-6 w-6 mr-2"
+                alt={`${technology.name} icon`}
+              />
+            )}
           </div>
         )
       })}
@@ -97,11 +113,19 @@ function SearchFilters({ filters, removeFilter }) {
     <div className="flex flex-wrap gap-2 mt-2">
       {filters.map((technology) => {
         return (
-          <div className="p-1 border-primary text-[0.6rem]">
+          <div
+            className="p-1 border-primary text-[0.6rem]"
+            onClick={() => removeFilter(technology)}
+          >
             {technology.name}
           </div>
         )
       })}
+      {filters.length === 0 && (
+        <div className="p-1 border-primary text-[0.6rem] opacity-50">
+          No filters
+        </div>
+      )}
     </div>
   )
 }
@@ -114,9 +138,13 @@ export function Page() {
   const [filters, setFilters] = useState([])
 
   const filteredSearch = useMemo(() => {
-    return filteredTech.filter((technology) => {
-      return technology.name.toLowerCase().includes(search.toLowerCase())
-    })
+    return filteredTech
+      .filter((technology) => {
+        return !filters.find((filter) => filter.name === technology.name)
+      })
+      .filter((technology) => {
+        return technology.name.toLowerCase().includes(search.toLowerCase())
+      })
   })
 
   return (
@@ -124,12 +152,12 @@ export function Page() {
       <h1 className="text-6xl">projects</h1>
 
       <div className="p-4 border-primary">
-        <Search setSearch={setSearch} />
+        <Search setSearch={setSearch} search={search} />
 
         <SearchFilters
           filters={filters}
           removeFilter={(technology) => {
-            setFilters((filters) =>
+            setFilters(
               filters.filter((filter) => filter.name !== technology.name)
             )
           }}

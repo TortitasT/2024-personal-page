@@ -1,6 +1,6 @@
 export { Search }
 
-function Search({ setSearch }) {
+function Search({ setSearch, search }) {
   return (
     <div className="border-primary flex items-center">
       <svg
@@ -24,6 +24,7 @@ function Search({ setSearch }) {
         type="text"
         placeholder="Search technologies, projects, etc."
         tabIndex={1}
+        value={search}
         onInput={(e) => setSearch(e.target.value)}
       />
       <div className="p-1 mr-2 border-primary text-[0.6rem] font-sans">
