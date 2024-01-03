@@ -148,7 +148,7 @@ export function Page() {
   })
 
   return (
-    <main className="p-6 flex flex-col gap-8 max-w-xl text-justify mix-blend-exclusion">
+    <main className="p-4 sm:p-6 flex flex-col gap-8 max-w-xl text-justify mix-blend-exclusion">
       <h1 className="text-6xl">projects</h1>
 
       <div className="p-4 border-primary">
