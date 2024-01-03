@@ -41,7 +41,7 @@ function SearchResults({ show, filteredSearch }) {
     }
 
     setTimeout(() => {
-      const selectedElement = scrollElement.current.children[selected]
+      const selectedElement = scrollElement.current?.children[selected] ?? null
 
       if (!selectedElement) {
         return

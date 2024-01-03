@@ -26,6 +26,9 @@ function Search({ setSearch }) {
         tabIndex={1}
         onInput={(e) => setSearch(e.target.value)}
       />
+      <div className="p-1 mr-2 border-primary text-[0.6rem] font-sans">
+        Enter
+      </div>
     </div>
   )
 }
