@@ -3,6 +3,8 @@ import { Search } from '../components/search'
 
 import tech from '../public/tech.json'
 
+const SHOWN_CATEGORIES = ['Language', 'Framework']
+
 function SearchResults({ show, filteredSearch }) {
   if (!show) {
     return
@@ -72,7 +74,9 @@ function SearchResults({ show, filteredSearch }) {
 
 export function Page() {
   const [search, setSearch] = useState('')
-  const [filteredTech, setFilteredTech] = useState(tech)
+  const [filteredTech, setFilteredTech] = useState(
+    tech.filter((technology) => SHOWN_CATEGORIES.includes(technology.category))
+  )
 
   // const categories = useMemo(() => {
   //   return tech

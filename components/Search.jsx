@@ -22,6 +22,8 @@ function Search({ setSearch }) {
       <input
         className="p-2 bg-transparent w-full"
         type="text"
+        placeholder="Search technologies, projects, etc."
+        tabIndex={1}
         onInput={(e) => setSearch(e.target.value)}
       />
     </div>
