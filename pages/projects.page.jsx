@@ -2,16 +2,21 @@ import { useState, useMemo, useEffect, useRef } from 'preact/hooks'
 import { Search } from '../components/Search.jsx'
 
 import tech from '../public/tech.json'
+import projects from '../public/projects.json'
 
 const SHOWN_CATEGORIES = ['Language', 'Framework', 'Library']
 
-function SearchResults({ show, filteredSearch, addFilter }) {
-  if (!show) {
-    return
-  }
-
+function SearchResults({
+  show,
+  filteredSearch,
+  addFilter,
+  search,
+  removeLastFilter,
+}) {
   const [selected, setSelected] = useState(0)
   const scrollElement = useRef(null)
+
+  let backspaceCount = 0
 
   useEffect(() => {
     const keydownCallback = (e) => {
@@ -44,6 +49,17 @@ function SearchResults({ show, filteredSearch, addFilter }) {
 
         addFilter(selectedTechnology)
       }
+
+      if (e.key === 'Backspace' && search.length === 0) {
+        backspaceCount++
+
+        if (backspaceCount === 2) {
+          removeLastFilter()
+          backspaceCount = 0
+        }
+      } else {
+        backspaceCount = 0
+      }
     }
 
     if (selected > filteredSearch.length - 1 && filteredSearch.length > 0) {
@@ -68,6 +84,10 @@ function SearchResults({ show, filteredSearch, addFilter }) {
       window.removeEventListener('keydown', keydownCallback)
     }
   })
+
+  if (!show) {
+    return
+  }
 
   return (
     <div
@@ -113,11 +133,15 @@ function SearchFilters({ filters, removeFilter }) {
     <div className="flex flex-wrap gap-2 mt-2">
       {filters.map((technology) => {
         return (
-          <div
-            className="p-1 border-primary text-[0.6rem]"
-            onClick={() => removeFilter(technology)}
-          >
+          <div className="p-1 border-primary text-[0.6rem]">
             {technology.name}
+
+            <button
+              onClick={() => removeFilter(technology)}
+              className="ml-1 opacity-50 hover:opacity-100 transition-opacity"
+            >
+              X
+            </button>
           </div>
         )
       })}
@@ -133,7 +157,13 @@ function SearchFilters({ filters, removeFilter }) {
 export function Page() {
   const [search, setSearch] = useState('')
   const [filteredTech, setFilteredTech] = useState(
-    tech.filter((technology) => SHOWN_CATEGORIES.includes(technology.category))
+    tech
+      .filter((technology) => SHOWN_CATEGORIES.includes(technology.category))
+      .filter((technology) => {
+        return projects.some((project) => {
+          return project.technologies.includes(technology.name.toLowerCase())
+        })
+      })
   )
   const [filters, setFilters] = useState([])
 
@@ -147,11 +177,23 @@ export function Page() {
       })
   })
 
+  const filteredProjects = useMemo(() => {
+    if (filters.length === 0) {
+      return projects
+    }
+
+    return projects.filter((project) => {
+      return filters.some((filter) => {
+        return project.technologies.includes(filter.name.toLowerCase())
+      })
+    })
+  })
+
   return (
-    <main className="p-4 sm:p-6 flex flex-col gap-8 max-w-xl text-justify mix-blend-exclusion">
+    <main className="p-4 sm:p-6 flex flex-col gap-8 text-justify mix-blend-exclusion">
       <h1 className="text-6xl">projects</h1>
 
-      <div className="p-4 border-primary">
+      <div className="p-4 border-primary max-w-xl">
         <Search setSearch={setSearch} search={search} />
 
         <SearchFilters
@@ -164,7 +206,7 @@ export function Page() {
         />
 
         <SearchResults
-          show={search.length > 0}
+          show={search.length > 0 && filteredSearch.length > 0}
           filteredSearch={filteredSearch}
           addFilter={(technology) => {
             const alreadyFiltered = filters.find(
@@ -178,7 +220,36 @@ export function Page() {
             setFilters((filters) => [...filters, technology])
             setSearch('')
           }}
+          search={search}
+          removeLastFilter={() => {
+            setFilters((filters) => filters.slice(0, filters.length - 1))
+          }}
         />
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2">
+        {filteredProjects.map((project) => {
+          return (
+            <div className="p-4 grid grid-cols-3 auto-rows-fr gap-2 border-primary bg-black">
+              <div className="col-span-2 w-max">
+                <h2 className="text-2xl">{project.name}</h2>
+                <small className="text-sm opacity-50">
+                  {project.full_name}
+                </small>
+              </div>
+
+              <div className="flex justify-end items-start">
+                {project.fork ? (
+                  <div className="p-1 border-primary text-[0.6rem] opacity-50">
+                    Fork
+                  </div>
+                ) : null}
+              </div>
+
+              <p className="text-sm mt-2 col-span-3">{project.description}</p>
+            </div>
+          )
+        })}
       </div>
     </main>
   )

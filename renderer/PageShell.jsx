@@ -10,8 +10,8 @@ function PageShell({ pageContext, children }) {
   return (
     <PageContextProvider pageContext={pageContext}>
       <Menu />
-      <CursorFluidShader />
       {children}
+      <CursorFluidShader />
     </PageContextProvider>
   )
 }

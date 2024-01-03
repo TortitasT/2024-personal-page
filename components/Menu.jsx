@@ -51,7 +51,7 @@ function Menu() {
   }
 
   return (
-    <div className="mix-blend-exclusion p-6 flex justify-end sticky z-10">
+    <div className="mix-blend-exclusion p-6 flex justify-end sticky z-20">
       <button ref={button} onClick={toggleMenu} className="flex flex-col gap-2">
         <div ref={buttonBar1} className="w-6 h-[2px] bg-white"></div>
         <div ref={buttonBar2} className="w-6 h-[2px] bg-white"></div>
@@ -60,7 +60,7 @@ function Menu() {
 
       <nav
         ref={menu}
-        className="flex flex-col gap-2 absolute top-16 right-6 text-xl"
+        className="flex flex-col gap-2 absolute top-16 right-6 text-xl z-20"
         style="transition: none 0s ease 0s; transform: translate(100px); translate: none; rotate: none; scale: none; opacity: 0;"
       >
         <a href="/" className="text-white">

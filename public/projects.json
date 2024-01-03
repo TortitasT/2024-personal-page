@@ -1,0 +1,799 @@
+[
+  {
+    "name": "advent-of-code-2023",
+    "full_name": "TortitasT/advent-of-code-2023",
+    "description": "Saving christmas w/ Ocaml and Elixir",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "Elixir",
+      "OCaml"
+    ],
+    "url": "https://github.com/TortitasT/advent-of-code-2023"
+  },
+  {
+    "name": "dam2-delivery",
+    "full_name": "TortitasT/dam2-delivery",
+    "description": "Delivery app mockup made in Jetpack Compose for DAM2",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "Kotlin",
+      "Makefile"
+    ],
+    "url": "https://github.com/TortitasT/dam2-delivery"
+  },
+  {
+    "name": "coc-intelephense",
+    "full_name": "TortitasT/coc-intelephense",
+    "description": "intelephense (PHP language server) extension for coc.nvim. intelephense’s various LSP features and this extension's additional features are available.",
+    "owner": "TortitasT",
+    "fork": true,
+    "technologies": [
+      "TypeScript",
+      "PHP",
+      "JavaScript"
+    ],
+    "url": "https://github.com/TortitasT/coc-intelephense"
+  },
+  {
+    "name": "dotfiles",
+    "full_name": "TortitasT/dotfiles",
+    "description": "☕",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "Vim Script",
+      "Shell",
+      "Nushell",
+      "Vim Snippet",
+      "Lua",
+      "PowerShell",
+      "Emacs Lisp",
+      "SCSS",
+      "HTML",
+      "CSS",
+      "Nu"
+    ],
+    "url": "https://github.com/TortitasT/dotfiles"
+  },
+  {
+    "name": "ja",
+    "full_name": "TortitasT/ja",
+    "description": "A simple java package manager.",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "Go",
+      "Shell",
+      "Java",
+      "Lua"
+    ],
+    "url": "https://github.com/TortitasT/ja"
+  },
+  {
+    "name": "patata-recipes",
+    "full_name": "TortitasT/patata-recipes",
+    "description": null,
+    "owner": "TortitasT",
+    "fork": true,
+    "technologies": [
+      "Vue",
+      "TypeScript",
+      "SCSS"
+    ],
+    "url": "https://github.com/TortitasT/patata-recipes"
+  },
+  {
+    "name": "sms-php",
+    "full_name": "TortitasT/sms-php",
+    "description": "Build your SMS application with PHP, easy SMS sending and worldwide coverage",
+    "owner": "TortitasT",
+    "fork": true,
+    "technologies": [
+      "PHP"
+    ],
+    "url": "https://github.com/TortitasT/sms-php"
+  },
+  {
+    "name": "framework",
+    "full_name": "TortitasT/framework",
+    "description": "The Laravel Framework.",
+    "owner": "TortitasT",
+    "fork": true,
+    "technologies": [
+      "PHP",
+      "Blade",
+      "Shell",
+      "CSS",
+      "Hack"
+    ],
+    "url": "https://github.com/TortitasT/framework"
+  },
+  {
+    "name": "ruvoke",
+    "full_name": "TortitasT/ruvoke",
+    "description": "Application runner made in Rust",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "Rust"
+    ],
+    "url": "https://github.com/TortitasT/ruvoke"
+  },
+  {
+    "name": "actix-jobs",
+    "full_name": "TortitasT/actix-jobs",
+    "description": "A simple job scheduler for Actix",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "Rust"
+    ],
+    "url": "https://github.com/TortitasT/actix-jobs"
+  },
+  {
+    "name": "lighthouse",
+    "full_name": "TortitasT/lighthouse",
+    "description": "Automated auditing, performance metrics, and best practices for the web.",
+    "owner": "TortitasT",
+    "fork": true,
+    "technologies": [
+      "JavaScript",
+      "TypeScript",
+      "CSS",
+      "Shell",
+      "HTML",
+      "Handlebars",
+      "Python"
+    ],
+    "url": "https://github.com/TortitasT/lighthouse"
+  },
+  {
+    "name": "langkeeper",
+    "full_name": "TortitasT/langkeeper",
+    "description": "Keep track of the time you spend programming.",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "Rust",
+      "HTML",
+      "CSS",
+      "Dockerfile"
+    ],
+    "url": "https://github.com/TortitasT/langkeeper"
+  },
+  {
+    "name": "langkeeper.nvim",
+    "full_name": "TortitasT/langkeeper.nvim",
+    "description": "Keep track of the time you spend programming.",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "Lua"
+    ],
+    "url": "https://github.com/TortitasT/langkeeper.nvim"
+  },
+  {
+    "name": "vscode-langkeeper",
+    "full_name": "TortitasT/vscode-langkeeper",
+    "description": "Keep track of the time you spend programming.",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "TypeScript",
+      "clock",
+      "coding",
+      "languages",
+      "time",
+      "tracking"
+    ],
+    "url": "https://github.com/TortitasT/vscode-langkeeper"
+  },
+  {
+    "name": "go-web-documentation",
+    "full_name": "TortitasT/go-web-documentation",
+    "description": "Go-Web Docusaurus documentation",
+    "owner": "TortitasT",
+    "fork": true,
+    "technologies": [
+      "JavaScript",
+      "CSS"
+    ],
+    "url": "https://github.com/TortitasT/go-web-documentation"
+  },
+  {
+    "name": "benibus",
+    "full_name": "TortitasT/benibus",
+    "description": "App para consultar los horarios de los buses en Benidorm",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "C++",
+      "Dart",
+      "CMake",
+      "Swift",
+      "HTML",
+      "C",
+      "Kotlin",
+      "Objective-C"
+    ],
+    "url": "https://github.com/TortitasT/benibus"
+  },
+  {
+    "name": "android-platform-tools-installer",
+    "full_name": "TortitasT/android-platform-tools-installer",
+    "description": "Windows android platform tools installer (adb)",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "PowerShell",
+      "adb",
+      "android",
+      "installer",
+      "powershell",
+      "windows"
+    ],
+    "url": "https://github.com/TortitasT/android-platform-tools-installer"
+  },
+  {
+    "name": "cookhub",
+    "full_name": "TortitasT/cookhub",
+    "description": "Parses cooklang recipes from GitHub repositories.",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "JavaScript",
+      "cooklang",
+      "javascript",
+      "recipes"
+    ],
+    "url": "https://github.com/TortitasT/cookhub"
+  },
+  {
+    "name": "taskt-server",
+    "full_name": "TortitasT/taskt-server",
+    "description": "Server for taskt",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "Rust"
+    ],
+    "url": "https://github.com/TortitasT/taskt-server"
+  },
+  {
+    "name": "taskt",
+    "full_name": "TortitasT/taskt",
+    "description": "Todo app made in Rust",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "Rust"
+    ],
+    "url": "https://github.com/TortitasT/taskt"
+  },
+  {
+    "name": "dam-battleship",
+    "full_name": "TortitasT/dam-battleship",
+    "description": "Battleship game made in winforms c# for DAM1 ED",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "C#"
+    ],
+    "url": "https://github.com/TortitasT/dam-battleship"
+  },
+  {
+    "name": "2023-personal-page",
+    "full_name": "TortitasT/2023-personal-page",
+    "description": "tortitas.eu personal page.",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "Vue",
+      "SCSS",
+      "TypeScript",
+      "JavaScript"
+    ],
+    "url": "https://github.com/TortitasT/2023-personal-page"
+  },
+  {
+    "name": "auth-laravel-nuxt3",
+    "full_name": "TortitasT/auth-laravel-nuxt3",
+    "description": "App template with auth system",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "PHP",
+      "Blade",
+      "TypeScript",
+      "Vue",
+      "SCSS",
+      "JavaScript",
+      "Shell"
+    ],
+    "url": "https://github.com/TortitasT/auth-laravel-nuxt3"
+  },
+  {
+    "name": "rpg-kata",
+    "full_name": "TortitasT/rpg-kata",
+    "description": null,
+    "owner": "TortitasT",
+    "fork": true,
+    "technologies": [
+      "TypeScript",
+      "Kotlin",
+      "C#",
+      "Scala",
+      "PHP",
+      "Python",
+      "JavaScript",
+      "Java"
+    ],
+    "url": "https://github.com/TortitasT/rpg-kata"
+  },
+  {
+    "name": "mini.nvim",
+    "full_name": "TortitasT/mini.nvim",
+    "description": "Library of 30+ independent Lua modules improving overall Neovim (version 0.7 and higher) experience with minimal effort",
+    "owner": "TortitasT",
+    "fork": true,
+    "technologies": [
+      "Lua",
+      "Shell",
+      "Python",
+      "Makefile",
+      "Vim Script"
+    ],
+    "url": "https://github.com/TortitasT/mini.nvim"
+  },
+  {
+    "name": "dam-nginx-docker",
+    "full_name": "TortitasT/dam-nginx-docker",
+    "description": null,
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "HTML",
+      "Shell",
+      "Makefile"
+    ],
+    "url": "https://github.com/TortitasT/dam-nginx-docker"
+  },
+  {
+    "name": "php-ffi-rust-test",
+    "full_name": "TortitasT/php-ffi-rust-test",
+    "description": "Rust png to avif image conversion callable from php",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "Rust",
+      "PHP"
+    ],
+    "url": "https://github.com/TortitasT/php-ffi-rust-test"
+  },
+  {
+    "name": "prettier-config",
+    "full_name": "TortitasT/prettier-config",
+    "description": "My personal prettier config",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [],
+    "url": "https://github.com/TortitasT/prettier-config"
+  },
+  {
+    "name": "coc-sumneko-lua",
+    "full_name": "TortitasT/coc-sumneko-lua",
+    "description": "Lua extension using sumneko lua-language-server for coc.nvim",
+    "owner": "TortitasT",
+    "fork": true,
+    "technologies": [
+      "TypeScript",
+      "JavaScript"
+    ],
+    "url": "https://github.com/TortitasT/coc-sumneko-lua"
+  },
+  {
+    "name": "alend",
+    "full_name": "TortitasT/alend",
+    "description": "A moodle events console tool.",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "JavaScript"
+    ],
+    "url": "https://github.com/TortitasT/alend"
+  },
+  {
+    "name": "advent-of-code-2023",
+    "full_name": "TortitasT/advent-of-code-2023",
+    "description": "Saving christmas w/ Ocaml and Elixir",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "elixir",
+      "ocaml"
+    ],
+    "url": "https://github.com/TortitasT/advent-of-code-2023"
+  },
+  {
+    "name": "dam2-delivery",
+    "full_name": "TortitasT/dam2-delivery",
+    "description": "Delivery app mockup made in Jetpack Compose for DAM2",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "kotlin",
+      "makefile"
+    ],
+    "url": "https://github.com/TortitasT/dam2-delivery"
+  },
+  {
+    "name": "coc-intelephense",
+    "full_name": "TortitasT/coc-intelephense",
+    "description": "intelephense (PHP language server) extension for coc.nvim. intelephense’s various LSP features and this extension's additional features are available.",
+    "owner": "TortitasT",
+    "fork": true,
+    "technologies": [
+      "typescript",
+      "php",
+      "javascript"
+    ],
+    "url": "https://github.com/TortitasT/coc-intelephense"
+  },
+  {
+    "name": "dotfiles",
+    "full_name": "TortitasT/dotfiles",
+    "description": "☕",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "vim script",
+      "shell",
+      "nushell",
+      "vim snippet",
+      "lua",
+      "powershell",
+      "emacs lisp",
+      "scss",
+      "html",
+      "css",
+      "nu"
+    ],
+    "url": "https://github.com/TortitasT/dotfiles"
+  },
+  {
+    "name": "ja",
+    "full_name": "TortitasT/ja",
+    "description": "A simple java package manager.",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "go",
+      "shell",
+      "java",
+      "lua"
+    ],
+    "url": "https://github.com/TortitasT/ja"
+  },
+  {
+    "name": "patata-recipes",
+    "full_name": "TortitasT/patata-recipes",
+    "description": null,
+    "owner": "TortitasT",
+    "fork": true,
+    "technologies": [
+      "vue",
+      "typescript",
+      "scss"
+    ],
+    "url": "https://github.com/TortitasT/patata-recipes"
+  },
+  {
+    "name": "sms-php",
+    "full_name": "TortitasT/sms-php",
+    "description": "Build your SMS application with PHP, easy SMS sending and worldwide coverage",
+    "owner": "TortitasT",
+    "fork": true,
+    "technologies": [
+      "php"
+    ],
+    "url": "https://github.com/TortitasT/sms-php"
+  },
+  {
+    "name": "framework",
+    "full_name": "TortitasT/framework",
+    "description": "The Laravel Framework.",
+    "owner": "TortitasT",
+    "fork": true,
+    "technologies": [
+      "php",
+      "blade",
+      "shell",
+      "css",
+      "hack"
+    ],
+    "url": "https://github.com/TortitasT/framework"
+  },
+  {
+    "name": "ruvoke",
+    "full_name": "TortitasT/ruvoke",
+    "description": "Application runner made in Rust",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "rust"
+    ],
+    "url": "https://github.com/TortitasT/ruvoke"
+  },
+  {
+    "name": "actix-jobs",
+    "full_name": "TortitasT/actix-jobs",
+    "description": "A simple job scheduler for Actix",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "rust"
+    ],
+    "url": "https://github.com/TortitasT/actix-jobs"
+  },
+  {
+    "name": "lighthouse",
+    "full_name": "TortitasT/lighthouse",
+    "description": "Automated auditing, performance metrics, and best practices for the web.",
+    "owner": "TortitasT",
+    "fork": true,
+    "technologies": [
+      "javascript",
+      "typescript",
+      "css",
+      "shell",
+      "html",
+      "handlebars",
+      "python"
+    ],
+    "url": "https://github.com/TortitasT/lighthouse"
+  },
+  {
+    "name": "langkeeper",
+    "full_name": "TortitasT/langkeeper",
+    "description": "Keep track of the time you spend programming.",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "rust",
+      "html",
+      "css",
+      "dockerfile"
+    ],
+    "url": "https://github.com/TortitasT/langkeeper"
+  },
+  {
+    "name": "langkeeper.nvim",
+    "full_name": "TortitasT/langkeeper.nvim",
+    "description": "Keep track of the time you spend programming.",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "lua"
+    ],
+    "url": "https://github.com/TortitasT/langkeeper.nvim"
+  },
+  {
+    "name": "vscode-langkeeper",
+    "full_name": "TortitasT/vscode-langkeeper",
+    "description": "Keep track of the time you spend programming.",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "message",
+      "documentation_url",
+      "clock",
+      "coding",
+      "languages",
+      "time",
+      "tracking"
+    ],
+    "url": "https://github.com/TortitasT/vscode-langkeeper"
+  },
+  {
+    "name": "go-web-documentation",
+    "full_name": "TortitasT/go-web-documentation",
+    "description": "Go-Web Docusaurus documentation",
+    "owner": "TortitasT",
+    "fork": true,
+    "technologies": [
+      "message",
+      "documentation_url"
+    ],
+    "url": "https://github.com/TortitasT/go-web-documentation"
+  },
+  {
+    "name": "benibus",
+    "full_name": "TortitasT/benibus",
+    "description": "App para consultar los horarios de los buses en Benidorm",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "message",
+      "documentation_url"
+    ],
+    "url": "https://github.com/TortitasT/benibus"
+  },
+  {
+    "name": "android-platform-tools-installer",
+    "full_name": "TortitasT/android-platform-tools-installer",
+    "description": "Windows android platform tools installer (adb)",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "message",
+      "documentation_url",
+      "adb",
+      "android",
+      "installer",
+      "powershell",
+      "windows"
+    ],
+    "url": "https://github.com/TortitasT/android-platform-tools-installer"
+  },
+  {
+    "name": "cookhub",
+    "full_name": "TortitasT/cookhub",
+    "description": "Parses cooklang recipes from GitHub repositories.",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "message",
+      "documentation_url",
+      "cooklang",
+      "javascript",
+      "recipes"
+    ],
+    "url": "https://github.com/TortitasT/cookhub"
+  },
+  {
+    "name": "taskt-server",
+    "full_name": "TortitasT/taskt-server",
+    "description": "Server for taskt",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "message",
+      "documentation_url"
+    ],
+    "url": "https://github.com/TortitasT/taskt-server"
+  },
+  {
+    "name": "taskt",
+    "full_name": "TortitasT/taskt",
+    "description": "Todo app made in Rust",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "message",
+      "documentation_url"
+    ],
+    "url": "https://github.com/TortitasT/taskt"
+  },
+  {
+    "name": "dam-battleship",
+    "full_name": "TortitasT/dam-battleship",
+    "description": "Battleship game made in winforms c# for DAM1 ED",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "message",
+      "documentation_url"
+    ],
+    "url": "https://github.com/TortitasT/dam-battleship"
+  },
+  {
+    "name": "2023-personal-page",
+    "full_name": "TortitasT/2023-personal-page",
+    "description": "tortitas.eu personal page.",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "message",
+      "documentation_url"
+    ],
+    "url": "https://github.com/TortitasT/2023-personal-page"
+  },
+  {
+    "name": "auth-laravel-nuxt3",
+    "full_name": "TortitasT/auth-laravel-nuxt3",
+    "description": "App template with auth system",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "message",
+      "documentation_url"
+    ],
+    "url": "https://github.com/TortitasT/auth-laravel-nuxt3"
+  },
+  {
+    "name": "rpg-kata",
+    "full_name": "TortitasT/rpg-kata",
+    "description": null,
+    "owner": "TortitasT",
+    "fork": true,
+    "technologies": [
+      "message",
+      "documentation_url"
+    ],
+    "url": "https://github.com/TortitasT/rpg-kata"
+  },
+  {
+    "name": "mini.nvim",
+    "full_name": "TortitasT/mini.nvim",
+    "description": "Library of 30+ independent Lua modules improving overall Neovim (version 0.7 and higher) experience with minimal effort",
+    "owner": "TortitasT",
+    "fork": true,
+    "technologies": [
+      "message",
+      "documentation_url"
+    ],
+    "url": "https://github.com/TortitasT/mini.nvim"
+  },
+  {
+    "name": "dam-nginx-docker",
+    "full_name": "TortitasT/dam-nginx-docker",
+    "description": null,
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "message",
+      "documentation_url"
+    ],
+    "url": "https://github.com/TortitasT/dam-nginx-docker"
+  },
+  {
+    "name": "php-ffi-rust-test",
+    "full_name": "TortitasT/php-ffi-rust-test",
+    "description": "Rust png to avif image conversion callable from php",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "message",
+      "documentation_url"
+    ],
+    "url": "https://github.com/TortitasT/php-ffi-rust-test"
+  },
+  {
+    "name": "prettier-config",
+    "full_name": "TortitasT/prettier-config",
+    "description": "My personal prettier config",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "message",
+      "documentation_url"
+    ],
+    "url": "https://github.com/TortitasT/prettier-config"
+  },
+  {
+    "name": "coc-sumneko-lua",
+    "full_name": "TortitasT/coc-sumneko-lua",
+    "description": "Lua extension using sumneko lua-language-server for coc.nvim",
+    "owner": "TortitasT",
+    "fork": true,
+    "technologies": [
+      "message",
+      "documentation_url"
+    ],
+    "url": "https://github.com/TortitasT/coc-sumneko-lua"
+  },
+  {
+    "name": "alend",
+    "full_name": "TortitasT/alend",
+    "description": "A moodle events console tool.",
+    "owner": "TortitasT",
+    "fork": false,
+    "technologies": [
+      "message",
+      "documentation_url"
+    ],
+    "url": "https://github.com/TortitasT/alend"
+  }
+]

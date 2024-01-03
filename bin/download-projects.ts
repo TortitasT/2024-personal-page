@@ -33,9 +33,11 @@ async function getRepositoryLanguages(user: string, repo: string) {
 }
 
 function saveProject(project: project) {
-  const projects = JSON.parse(
-    fs.readFileSync('./public/projects.json', 'utf-8')
-  )
+  let projects: project[] = []
+
+  try {
+    projects = JSON.parse(fs.readFileSync('./public/projects.json', 'utf-8'))
+  } catch (e) {}
 
   projects.push(project)
   fs.writeFileSync(
@@ -56,10 +58,9 @@ async function main() {
     try {
       const languages = await getRepositoryLanguages('tortitast', repo.name)
 
-      const technologies = [
-        ...Object.keys(languages),
-        ...(repo.topics ?? []),
-      ].filter((value, index, self) => self.indexOf(value) === index)
+      const technologies = [...Object.keys(languages), ...(repo.topics ?? [])]
+        .filter((value, index, self) => self.indexOf(value) === index)
+        .map((value) => value.toLowerCase())
 
       saveProject({
         name: repo.name,
