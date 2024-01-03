@@ -1,9 +1,9 @@
 import { useState, useMemo, useEffect, useRef } from 'preact/hooks'
-import { Search } from '../components/search'
+import { Search } from '../components/Search.jsx'
 
 import tech from '../public/tech.json'
 
-const SHOWN_CATEGORIES = ['Language', 'Framework']
+const SHOWN_CATEGORIES = ['Language', 'Framework', 'Library']
 
 function SearchResults({ show, filteredSearch }) {
   if (!show) {
@@ -16,6 +16,8 @@ function SearchResults({ show, filteredSearch }) {
   useEffect(() => {
     const keydownCallback = (e) => {
       if (e.key === 'ArrowDown') {
+        e.preventDefault()
+
         if (selected >= filteredSearch.length - 1) {
           return
         }
@@ -24,6 +26,8 @@ function SearchResults({ show, filteredSearch }) {
       }
 
       if (e.key === 'ArrowUp') {
+        e.preventDefault()
+
         if (selected === 0) {
           return
         }
@@ -38,6 +42,11 @@ function SearchResults({ show, filteredSearch }) {
 
     setTimeout(() => {
       const selectedElement = scrollElement.current.children[selected]
+
+      if (!selectedElement) {
+        return
+      }
+
       scrollElement.current.scrollTo({
         top: selectedElement.offsetTop - 500,
         behavior: 'smooth',
@@ -59,12 +68,13 @@ function SearchResults({ show, filteredSearch }) {
         return (
           <div
             className={
-              'flex flex-col gap-2 p-2 text-sm' +
+              'flex flex-col gap-1 p-2 text-sm' +
               (selected === index ? ' bg-gray-400/20 rounded-md' : '')
             }
             onClick={() => setSelected(index)}
           >
-            <h2 className="">{technology.name}</h2>
+            <h2>{technology.name}</h2>
+            <small>{technology.category}</small>
           </div>
         )
       })}
@@ -77,25 +87,6 @@ export function Page() {
   const [filteredTech, setFilteredTech] = useState(
     tech.filter((technology) => SHOWN_CATEGORIES.includes(technology.category))
   )
-
-  // const categories = useMemo(() => {
-  //   return tech
-  //     .reduce((acc, technology) => {
-  //       if (!acc.find((category) => category.name === technology.category)) {
-  //         acc.push({
-  //           name: technology.category,
-  //           tech: [technology],
-  //         })
-  //       } else {
-  //         acc
-  //           .find((category) => category.name === technology.category)
-  //           .tech.push(technology)
-  //       }
-  //
-  //       return acc
-  //     }, [])
-  //     .sort((a, b) => b.tech.length - a.tech.length)
-  // })
 
   const filteredSearch = useMemo(() => {
     return filteredTech.filter((technology) => {
