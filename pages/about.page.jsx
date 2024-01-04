@@ -1,6 +1,5 @@
 import { CursorFluidShader } from '../components/CursorFluidShader.jsx'
 import signature from './assets/signature.svg?raw'
-import { dangerouslySkipEscape } from 'vike/server'
 
 export function Page() {
   function dateDiffDays(date1, date2) {

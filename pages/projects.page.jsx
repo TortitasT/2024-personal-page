@@ -13,8 +13,9 @@ function SearchResults({
   addFilter,
   search,
   removeLastFilter,
+  selected,
+  setSelected,
 }) {
-  const [selected, setSelected] = useState(0)
   const [selectedModifiedByKeyboard, setSelectedModifiedByKeyboard] =
     useState(false)
   const scrollElement = useRef(null)
@@ -177,6 +178,7 @@ export function Page() {
       })
   )
   const [filters, setFilters] = useState([])
+  const [selected, setSelected] = useState(0)
 
   const filteredSearch = useMemo(() => {
     return filteredTech
@@ -186,11 +188,20 @@ export function Page() {
       .map((technology) => {
         return {
           ...technology,
-          score: similarity(technology.name, search.toLowerCase()),
+          search_score: similarity(technology.name, search.toLowerCase()),
+          projects_count: projects.filter((project) => {
+            return (
+              project.technologies.includes(technology.name.toLowerCase()) ||
+              project.technologies.includes(technology.alias?.toLowerCase())
+            )
+          }).length,
         }
       })
       .sort((a, b) => {
-        return b.score - a.score
+        return b.projects_count - a.projects_count
+      })
+      .sort((a, b) => {
+        return b.search_score - a.search_score
       })
   })
 
@@ -207,6 +218,12 @@ export function Page() {
         )
       })
     })
+  })
+
+  useEffect(() => {
+    if (search.length === 0) {
+      setSelected(0)
+    }
   })
 
   return (
@@ -244,6 +261,8 @@ export function Page() {
           removeLastFilter={() => {
             setFilters((filters) => filters.slice(0, filters.length - 1))
           }}
+          selected={selected}
+          setSelected={setSelected}
         />
       </div>
 
