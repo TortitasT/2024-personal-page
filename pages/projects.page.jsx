@@ -267,7 +267,7 @@ export function Page() {
 
               <p className="text-sm mt-2 col-span-3">{project.description}</p>
 
-              <div>
+              <div className="flex flex-wrap items-end justify-end gap-2 col-span-3">
                 {project.technologies.map((technology) => {
                   return (
                     <div className="p-1 border-primary text-[0.6rem]">
