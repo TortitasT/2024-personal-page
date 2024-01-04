@@ -284,6 +284,16 @@ export function Page() {
             </a>
           )
         })}
+        {filters.length > 0 && (
+          <button
+            className="cursor-pointer p-4 border-primary bg-black"
+            onClick={() => {
+              setFilters([])
+            }}
+          >
+            <h2>Want more? Clear filters!</h2>
+          </button>
+        )}
       </div>
     </main>
   )
