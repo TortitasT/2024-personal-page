@@ -6,8 +6,44 @@ import tech from './assets/tech.json'
 import projects from './assets/projects.json'
 
 const SHOWN_CATEGORIES = ['Language', 'Framework', 'Library']
+const INITIAL_FILTERED_TECH = tech
+  .filter((technology) => SHOWN_CATEGORIES.includes(technology.category))
+  .filter((technology) => {
+    return projects.some((project) => {
+      return (
+        project.technologies.includes(technology.name.toLowerCase()) ||
+        project.technologies.includes(technology.alias?.toLowerCase())
+      )
+    })
+  })
 
-function SearchResults({
+function SearchFilters({ filters, removeFilter }) {
+  return (
+    <div className="flex flex-wrap gap-2 mt-2">
+      {filters.map((technology) => {
+        return (
+          <div className="p-1 border-primary text-[0.6rem]">
+            {technology.name}
+
+            <button
+              onClick={() => removeFilter(technology)}
+              className="ml-1 opacity-50 hover:opacity-100 transition-opacity"
+            >
+              X
+            </button>
+          </div>
+        )
+      })}
+      {filters.length === 0 && (
+        <div className="p-1 border-primary text-[0.6rem] opacity-50">
+          No filters
+        </div>
+      )}
+    </div>
+  )
+}
+
+function SearchAutocomplete({
   show,
   filteredSearch,
   addFilter,
@@ -137,27 +173,52 @@ function SearchResults({
   )
 }
 
-function SearchFilters({ filters, removeFilter }) {
+function SearchResults({ filteredProjects, filters, setFilters }) {
   return (
-    <div className="flex flex-wrap gap-2 mt-2">
-      {filters.map((technology) => {
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2">
+      {filteredProjects.map((project) => {
         return (
-          <div className="p-1 border-primary text-[0.6rem]">
-            {technology.name}
+          <a
+            href={project.url}
+            target="_blank"
+            className="cursor-pointer p-4 grid grid-cols-1 md:grid-cols-2  gap-2 border-primary"
+          >
+            <div>
+              <h2 className="text-2xl">{project.name}</h2>
+              <small className="text-sm opacity-50">{project.full_name}</small>
+            </div>
 
-            <button
-              onClick={() => removeFilter(technology)}
-              className="ml-1 opacity-50 hover:opacity-100 transition-opacity"
-            >
-              X
-            </button>
-          </div>
+            <div className="flex justify-end items-start">
+              {project.fork ? (
+                <div className="p-1 border-primary text-[0.6rem] opacity-50">
+                  Fork
+                </div>
+              ) : null}
+            </div>
+
+            <p className="text-sm mt-2 md:col-span-2">{project.description}</p>
+
+            <div className="flex flex-wrap items-end justify-end gap-2 md:col-span-2">
+              {project.technologies.map((technology) => {
+                return (
+                  <div className="p-1 border-primary text-[0.6rem]">
+                    {technology}
+                  </div>
+                )
+              })}
+            </div>
+          </a>
         )
       })}
-      {filters.length === 0 && (
-        <div className="p-1 border-primary text-[0.6rem] opacity-50">
-          No filters
-        </div>
+      {filters.length > 0 && (
+        <button
+          className="cursor-pointer p-4 border-primary"
+          onClick={() => {
+            setFilters([])
+          }}
+        >
+          <h2>Want more? Clear filters!</h2>
+        </button>
       )}
     </div>
   )
@@ -165,18 +226,7 @@ function SearchFilters({ filters, removeFilter }) {
 
 export function Page() {
   const [search, setSearch] = useState('')
-  const [filteredTech, setFilteredTech] = useState(
-    tech
-      .filter((technology) => SHOWN_CATEGORIES.includes(technology.category))
-      .filter((technology) => {
-        return projects.some((project) => {
-          return (
-            project.technologies.includes(technology.name.toLowerCase()) ||
-            project.technologies.includes(technology.alias?.toLowerCase())
-          )
-        })
-      })
-  )
+  const [filteredTech, setFilteredTech] = useState(INITIAL_FILTERED_TECH)
   const [filters, setFilters] = useState([])
   const [selected, setSelected] = useState(0)
 
@@ -220,18 +270,16 @@ export function Page() {
     })
   })
 
-  useEffect(() => {
-    if (search.length === 0) {
-      setSelected(0)
-    }
-  })
-
   return (
     <main className="p-4 sm:p-6 flex flex-col gap-8 text-justify mix-blend-exclusion">
       <h1 className="text-6xl">projects</h1>
 
       <div className="p-4 border-primary max-w-xl">
-        <Search setSearch={setSearch} search={search} />
+        <Search
+          setSearch={setSearch}
+          search={search}
+          setSelected={setSelected}
+        />
 
         <SearchFilters
           filters={filters}
@@ -242,7 +290,7 @@ export function Page() {
           }}
         />
 
-        <SearchResults
+        <SearchAutocomplete
           show={search.length > 0 && filteredSearch.length > 0}
           filteredSearch={filteredSearch}
           addFilter={(technology) => {
@@ -266,56 +314,11 @@ export function Page() {
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2">
-        {filteredProjects.map((project) => {
-          return (
-            <a
-              href={project.url}
-              target="_blank"
-              className="cursor-pointer p-4 grid grid-cols-1 md:grid-cols-2  gap-2 border-primary"
-            >
-              <div>
-                <h2 className="text-2xl">{project.name}</h2>
-                <small className="text-sm opacity-50">
-                  {project.full_name}
-                </small>
-              </div>
-
-              <div className="flex justify-end items-start">
-                {project.fork ? (
-                  <div className="p-1 border-primary text-[0.6rem] opacity-50">
-                    Fork
-                  </div>
-                ) : null}
-              </div>
-
-              <p className="text-sm mt-2 md:col-span-2">
-                {project.description}
-              </p>
-
-              <div className="flex flex-wrap items-end justify-end gap-2 md:col-span-2">
-                {project.technologies.map((technology) => {
-                  return (
-                    <div className="p-1 border-primary text-[0.6rem]">
-                      {technology}
-                    </div>
-                  )
-                })}
-              </div>
-            </a>
-          )
-        })}
-        {filters.length > 0 && (
-          <button
-            className="cursor-pointer p-4 border-primary"
-            onClick={() => {
-              setFilters([])
-            }}
-          >
-            <h2>Want more? Clear filters!</h2>
-          </button>
-        )}
-      </div>
+      <SearchResults
+        filteredProjects={filteredProjects}
+        filters={filters}
+        setFilters={setFilters}
+      />
     </main>
   )
 }
