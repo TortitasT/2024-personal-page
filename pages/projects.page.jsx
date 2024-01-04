@@ -121,11 +121,10 @@ function SearchResults({
             </div>
             {technology.icon && (
               <img
-                src={
-                  technology.icon?.dark || false
-                    ? technology.icon.dark
-                    : technology.icon
-                }
+                src={(technology.icon?.dark || false
+                  ? technology.icon.dark
+                  : technology.icon
+                ).replace('/public', '')}
                 className="h-6 w-6 mr-2"
                 alt={`${technology.name} icon`}
               />
