@@ -5,7 +5,7 @@ import { similarity } from '../lib/similarity.js'
 import tech from './assets/tech.json'
 import projects from './assets/projects.json'
 
-const SHOWN_CATEGORIES = ['Language', 'Framework', 'Library']
+const SHOWN_CATEGORIES = ['Language', 'Framework', 'Library', 'Software']
 const INITIAL_FILTERED_TECH = tech
   .filter((technology) => SHOWN_CATEGORIES.includes(technology.category))
   .filter((technology) => {

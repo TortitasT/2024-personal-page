@@ -13,6 +13,7 @@
   },
   {
     "name": "Visual Studio Code",
+    "alias": "VSCode",
     "icon": "./public/tech/visual-studio-code.svg",
     "category": "Software",
     "url": "https://code.visualstudio.com/"
@@ -1549,6 +1550,7 @@
   },
   {
     "name": "Emacs",
+    "alias": "Emacs lisp",
     "icon": "./public/tech/emacs.svg",
     "category": "Software",
     "url": "https://www.gnu.org/software/emacs/"
