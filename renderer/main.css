@@ -38,6 +38,18 @@ a {
   font-weight: bold;
 }
 
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+input,
+textarea,
+select {
+  @apply bg-transparent border-none;
+}
+
 a:hover {
   text-decoration: underline;
 }
@@ -60,4 +72,8 @@ a:hover {
 
 .text--go {
   color: #00acd7;
+}
+
+.border-primary {
+  @apply border border-gray-200/20 rounded-md;
 }
