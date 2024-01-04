@@ -122,12 +122,9 @@ function SearchResults({
             {technology.icon && (
               <img
                 src={
-                  new URL(
-                    technology.icon?.dark || false
-                      ? technology.icon.dark
-                      : technology.icon,
-                    import.meta.url.replace('pages', '')
-                  ).href
+                  technology.icon?.dark || false
+                    ? technology.icon.dark
+                    : technology.icon
                 }
                 className="h-6 w-6 mr-2"
                 alt={`${technology.name} icon`}
@@ -269,6 +266,16 @@ export function Page() {
               </div>
 
               <p className="text-sm mt-2 col-span-3">{project.description}</p>
+
+              <div>
+                {project.technologies.map((technology) => {
+                  return (
+                    <div className="p-1 border-primary text-[0.6rem]">
+                      {technology}
+                    </div>
+                  )
+                })}
+              </div>
             </a>
           )
         })}

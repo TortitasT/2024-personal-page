@@ -77,6 +77,11 @@ async function main() {
     try {
       const languages = await getRepositoryLanguages('tortitast', repo.name)
 
+      if (languages.message) {
+        console.log(languages.message)
+        continue
+      }
+
       const technologies = [...Object.keys(languages), ...(repo.topics ?? [])]
         .filter(
           (value: any, index: number, self: any) =>
@@ -104,4 +109,22 @@ async function main() {
   console.log('Done!')
 }
 
+function clearDuplicates() {
+  const projects: project[] = JSON.parse(
+    fs.readFileSync('./public/projects.json', 'utf-8')
+  )
+
+  const uniqueProjects = projects.filter(
+    (value: any, index: number, self: any) =>
+      self.findIndex((p: any) => p.name === value.name) === index
+  )
+
+  fs.writeFileSync(
+    './public/projects.json',
+    JSON.stringify(uniqueProjects, null, 2),
+    'utf-8'
+  )
+}
+
 await main()
+// clearDuplicates()
