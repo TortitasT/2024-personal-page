@@ -8,6 +8,7 @@ interface project {
   fork: boolean
   technologies: string[]
   url: string
+  updated_at?: string
 }
 
 const API_KEY = process.env.GITHUB_API_KEY
@@ -55,7 +56,9 @@ function saveProject(project: project) {
     projects = JSON.parse(fs.readFileSync('./public/projects.json', 'utf-8'))
   } catch (e) {}
 
+  projects = projects.filter((p) => p.name !== project.name)
   projects.push(project)
+
   fs.writeFileSync(
     './public/projects.json',
     JSON.stringify(projects, null, 2),
@@ -97,6 +100,7 @@ async function main() {
         fork: repo.fork,
         technologies: technologies,
         url: repo.html_url,
+        updated_at: repo.pushed_at,
       })
 
       console.log(`Saved ${repo.name}`)
@@ -107,6 +111,25 @@ async function main() {
   }
 
   console.log('Done!')
+}
+
+function orderProjects() {
+  const projects: project[] = JSON.parse(
+    fs.readFileSync('./public/projects.json', 'utf-8')
+  )
+
+  projects.sort((a, b) => {
+    if (a.updated_at && b.updated_at) {
+      return new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
+    }
+    return 0
+  })
+
+  fs.writeFileSync(
+    './public/projects.json',
+    JSON.stringify(projects, null, 2),
+    'utf-8'
+  )
 }
 
 function clearDuplicates() {
@@ -127,4 +150,5 @@ function clearDuplicates() {
 }
 
 await main()
+orderProjects()
 // clearDuplicates()

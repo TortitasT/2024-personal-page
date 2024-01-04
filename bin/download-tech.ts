@@ -15,6 +15,7 @@ interface tech {
   icon: route
   category: string
   url: string
+  custom?: boolean
 }
 
 const DIR = './public/tech'
@@ -124,6 +125,25 @@ fs.mkdirSync(DIR, { recursive: true })
 
 const icons = await fetchIcons()
 await handleIcons(icons)
+
+try {
+  const currentTechs = JSON.parse(
+    fs.readFileSync('./public/tech.json', 'utf-8')
+  )
+
+  const currentCustomTechs = currentTechs.filter((tech: tech) => tech.custom)
+  techs.push(...currentCustomTechs)
+
+  for (const tech of techs) {
+    const foundCurrentTech = currentTechs.find(
+      (currentTech: tech) => currentTech.name === tech.name
+    )
+
+    if (foundCurrentTech && foundCurrentTech.alias) {
+      tech.alias = foundCurrentTech.alias
+    }
+  }
+} catch (e) {}
 
 fs.writeFileSync('./public/tech.json', JSON.stringify(techs, null, 2), 'utf-8')
 console.log('Done!')

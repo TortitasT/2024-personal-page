@@ -170,7 +170,10 @@ export function Page() {
       .filter((technology) => SHOWN_CATEGORIES.includes(technology.category))
       .filter((technology) => {
         return projects.some((project) => {
-          return project.technologies.includes(technology.name.toLowerCase())
+          return (
+            project.technologies.includes(technology.name.toLowerCase()) ||
+            project.technologies.includes(technology.alias?.toLowerCase())
+          )
         })
       })
   )
@@ -199,7 +202,10 @@ export function Page() {
 
     return projects.filter((project) => {
       return filters.some((filter) => {
-        return project.technologies.includes(filter.name.toLowerCase())
+        return (
+          project.technologies.includes(filter.name.toLowerCase()) ||
+          project.technologies.includes(filter.alias?.toLowerCase())
+        )
       })
     })
   })
