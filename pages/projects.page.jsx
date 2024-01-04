@@ -253,9 +253,9 @@ export function Page() {
             <a
               href={project.url}
               target="_blank"
-              className="cursor-pointer p-4 grid grid-cols-3 auto-rows-fr gap-2 border-primary bg-black"
+              className="cursor-pointer p-4 grid grid-cols-1 md:grid-cols-2  gap-2 border-primary"
             >
-              <div className="col-span-2 w-max">
+              <div>
                 <h2 className="text-2xl">{project.name}</h2>
                 <small className="text-sm opacity-50">
                   {project.full_name}
@@ -270,9 +270,11 @@ export function Page() {
                 ) : null}
               </div>
 
-              <p className="text-sm mt-2 col-span-3">{project.description}</p>
+              <p className="text-sm mt-2 md:col-span-2">
+                {project.description}
+              </p>
 
-              <div className="flex flex-wrap items-end justify-end gap-2 col-span-3">
+              <div className="flex flex-wrap items-end justify-end gap-2 md:col-span-2">
                 {project.technologies.map((technology) => {
                   return (
                     <div className="p-1 border-primary text-[0.6rem]">
@@ -286,7 +288,7 @@ export function Page() {
         })}
         {filters.length > 0 && (
           <button
-            className="cursor-pointer p-4 border-primary bg-black"
+            className="cursor-pointer p-4 border-primary"
             onClick={() => {
               setFilters([])
             }}
