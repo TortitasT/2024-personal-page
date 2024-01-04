@@ -1266,6 +1266,7 @@
   },
   {
     "name": "Bash",
+    "alias": "Shell",
     "icon": {
       "dark": "./public/tech/bash-dark.svg",
       "light": "./public/tech/bash-light.svg"
@@ -2179,4 +2180,3 @@
     "custom": true
   }
 ]
-
