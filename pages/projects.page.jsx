@@ -2,8 +2,8 @@ import { useState, useMemo, useEffect, useRef } from 'preact/hooks'
 import { Search } from '../components/Search.jsx'
 import { similarity } from '../lib/similarity.js'
 
-import tech from '../public/tech.json'
-import projects from '../public/projects.json'
+import tech from './assets/tech.json'
+import projects from './assets/projects.json'
 
 const SHOWN_CATEGORIES = ['Language', 'Framework', 'Library']
 

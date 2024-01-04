@@ -53,14 +53,16 @@ function saveProject(project: project) {
   let projects: project[] = []
 
   try {
-    projects = JSON.parse(fs.readFileSync('./public/projects.json', 'utf-8'))
+    projects = JSON.parse(
+      fs.readFileSync('./pages/assets/projects.json', 'utf-8')
+    )
   } catch (e) {}
 
   projects = projects.filter((p) => p.name !== project.name)
   projects.push(project)
 
   fs.writeFileSync(
-    './public/projects.json',
+    './pages/assets/projects.json',
     JSON.stringify(projects, null, 2),
     'utf-8'
   )
@@ -115,7 +117,7 @@ async function main() {
 
 function orderProjects() {
   const projects: project[] = JSON.parse(
-    fs.readFileSync('./public/projects.json', 'utf-8')
+    fs.readFileSync('./pages/assets/projects.json', 'utf-8')
   )
 
   projects.sort((a, b) => {
@@ -126,7 +128,7 @@ function orderProjects() {
   })
 
   fs.writeFileSync(
-    './public/projects.json',
+    './pages/assets/projects.json',
     JSON.stringify(projects, null, 2),
     'utf-8'
   )
@@ -134,7 +136,7 @@ function orderProjects() {
 
 function clearDuplicates() {
   const projects: project[] = JSON.parse(
-    fs.readFileSync('./public/projects.json', 'utf-8')
+    fs.readFileSync('./pages/assets/projects.json', 'utf-8')
   )
 
   const uniqueProjects = projects.filter(
@@ -143,7 +145,7 @@ function clearDuplicates() {
   )
 
   fs.writeFileSync(
-    './public/projects.json',
+    './pages/assets/projects.json',
     JSON.stringify(uniqueProjects, null, 2),
     'utf-8'
   )

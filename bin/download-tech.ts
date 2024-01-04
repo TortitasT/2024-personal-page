@@ -128,7 +128,7 @@ await handleIcons(icons)
 
 try {
   const currentTechs = JSON.parse(
-    fs.readFileSync('./public/tech.json', 'utf-8')
+    fs.readFileSync('./pages/assets/tech.json', 'utf-8')
   )
 
   const currentCustomTechs = currentTechs.filter((tech: tech) => tech.custom)
@@ -145,5 +145,9 @@ try {
   }
 } catch (e) {}
 
-fs.writeFileSync('./public/tech.json', JSON.stringify(techs, null, 2), 'utf-8')
+fs.writeFileSync(
+  './pages/assets/tech.json',
+  JSON.stringify(techs, null, 2),
+  'utf-8'
+)
 console.log('Done!')
