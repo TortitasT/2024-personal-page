@@ -1,4 +1,6 @@
 import { CursorFluidShader } from '../components/CursorFluidShader.jsx'
+import signature from './assets/signature.svg?raw'
+import { dangerouslySkipEscape } from 'vike/server'
 
 export function Page() {
   function dateDiffDays(date1, date2) {
@@ -64,6 +66,11 @@ export function Page() {
           </a>{' '}
           or <a href="/projects">projects page</a> to see the rest of my work.
         </p>
+
+        <div
+          className="signature"
+          dangerouslySetInnerHTML={{ __html: signature }}
+        ></div>
       </main>
     </>
   )

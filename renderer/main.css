@@ -77,3 +77,19 @@ a:hover {
 .border-primary {
   @apply border border-gray-200/20 rounded-md;
 }
+
+@keyframes signature {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.signature svg path {
+  stroke: #fff;
+  fill: none;
+
+  stroke-dasharray: 1374.505615234375px;
+  stroke-dashoffset: 1374.505615234375px;
+
+  animation: signature 3s ease forwards;
+  animation-delay: 1s;
+}
