@@ -1,5 +1,5 @@
-import { Quote } from '../../components/Quote.jsx'
-import { CursorFluidShader } from '../../components/CursorFluidShader.jsx'
+import { Quote } from '../components/Quote.jsx'
+import { CursorFluidShader } from '../components/CursorFluidShader.jsx'
 
 export function Page() {
   return (
