@@ -91,3 +91,7 @@ select {
 .mdx > h2 {
   @apply mt-8 mb-4 text-4xl font-bold;
 }
+
+.mdx > p {
+  @apply mb-4;
+}
