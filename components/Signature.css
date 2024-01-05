@@ -1,0 +1,20 @@
+@keyframes signature {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.signature {
+  width: 150px;
+}
+
+.signature svg path {
+  stroke: #fff;
+  fill: none;
+
+  stroke-dasharray: 1374.505615234375px;
+  stroke-dashoffset: 1374.505615234375px;
+
+  animation: signature 3s ease forwards;
+  animation-delay: 1s;
+}

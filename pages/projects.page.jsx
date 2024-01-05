@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect, useRef } from 'preact/hooks'
 import { Search } from '../components/Search.jsx'
 import { similarity } from '../lib/similarity.js'
+import { Footer } from '../components/Footer.jsx'
 
 import tech from './assets/tech.json'
 import projects from './assets/projects.json'
@@ -151,7 +152,9 @@ function SearchAutocomplete({
           <div
             className={
               'flex items-center justify-between gap-2 cursor-pointer p-2 text-sm' +
-              (selected === index ? ' bg-gray-400/20 rounded-md' : '')
+              (selected === index
+                ? ' hover-hover:bg-gray-400/20 rounded-md'
+                : '')
             }
             onClick={(e) => {
               addFilter(technology)
@@ -284,55 +287,113 @@ export function Page() {
     })
   })
 
+  const topTechnologiesOfTheYear = useMemo(() => {
+    const now = new Date()
+
+    const technologies = projects
+      .filter((project) => {
+        const projectDate = new Date(project.updated_at)
+        const diffTime = Math.abs(now - projectDate)
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+        return diffDays < 365
+      })
+      .reduce((acc, project) => {
+        project.technologies
+          .filter((_, index) => {
+            return index < 3
+          })
+          .forEach((technology) => {
+            acc[technology] = (acc[technology] || 0) + 1
+          })
+
+        return acc
+      }, {})
+
+    return Object.entries(technologies).map(([technology, count]) => {
+      return { technology, count }
+    })
+  })
+
   return (
-    <main className="p-4 sm:p-6 flex flex-col gap-8 text-justify mix-blend-exclusion">
-      <h1 className="text-6xl">projects</h1>
+    <>
+      <main className="p-4 sm:p-6 flex flex-col gap-8 text-justify mix-blend-exclusion">
+        <h1>projects</h1>
 
-      <div className="p-4 border-primary max-w-xl">
-        <Search
-          setSearch={setSearch}
-          search={search}
-          setSelected={setSelected}
-        />
+        <div className="flex gap-6 items-end flex-wrap-reverse">
+          <div className="p-4 border-primary max-w-xl flex-grow">
+            <Search
+              setSearch={setSearch}
+              search={search}
+              setSelected={setSelected}
+            />
 
-        <SearchFilters
+            <SearchFilters
+              filters={filters}
+              removeFilter={(technology) => {
+                setFilters(
+                  filters.filter((filter) => filter.name !== technology.name)
+                )
+              }}
+            />
+
+            <SearchAutocomplete
+              show={search.length > 0 && filteredSearch.length > 0}
+              filteredSearch={filteredSearch}
+              addFilter={(technology) => {
+                const alreadyFiltered = filters.find(
+                  (filter) => filter.name === technology.name
+                )
+
+                if (alreadyFiltered) {
+                  return
+                }
+
+                setFilters((filters) => [...filters, technology])
+                setSearch('')
+              }}
+              search={search}
+              removeLastFilter={() => {
+                setFilters((filters) => filters.slice(0, filters.length - 1))
+              }}
+              selected={selected}
+              setSelected={setSelected}
+            />
+          </div>
+
+          <div className="flex-shrink max-w-[800px]">
+            <p>
+              My projects are mostly open source, and I try to make them as
+              accessible as possible. I also try to use the most modern
+              technologies, so that I can learn new things while working on
+              them.
+            </p>
+
+            <p className="mt-4">
+              My top 3 technologies of the year are{' '}
+              {topTechnologiesOfTheYear
+                .sort((a, b) => {
+                  return b.count - a.count
+                })
+                .slice(0, 3)
+                .map(({ technology, count }, index) => {
+                  return (
+                    <span>
+                      <span className="font-bold">{technology}</span>
+                      {index < 2 ? (index === 0 ? ', ' : ' and ') : ''}
+                    </span>
+                  )
+                })}
+            </p>
+          </div>
+        </div>
+
+        <SearchResults
+          filteredProjects={filteredProjects}
           filters={filters}
-          removeFilter={(technology) => {
-            setFilters(
-              filters.filter((filter) => filter.name !== technology.name)
-            )
-          }}
+          setFilters={setFilters}
         />
-
-        <SearchAutocomplete
-          show={search.length > 0 && filteredSearch.length > 0}
-          filteredSearch={filteredSearch}
-          addFilter={(technology) => {
-            const alreadyFiltered = filters.find(
-              (filter) => filter.name === technology.name
-            )
-
-            if (alreadyFiltered) {
-              return
-            }
-
-            setFilters((filters) => [...filters, technology])
-            setSearch('')
-          }}
-          search={search}
-          removeLastFilter={() => {
-            setFilters((filters) => filters.slice(0, filters.length - 1))
-          }}
-          selected={selected}
-          setSelected={setSelected}
-        />
-      </div>
-
-      <SearchResults
-        filteredProjects={filteredProjects}
-        filters={filters}
-        setFilters={setFilters}
-      />
-    </main>
+      </main>
+      <Footer />
+    </>
   )
 }

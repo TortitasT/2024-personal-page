@@ -8,7 +8,11 @@ export default {
     './pages/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        'hover-hover': { raw: '(hover: hover)' },
+      },
+    },
   },
   plugins: [],
 }

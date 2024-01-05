@@ -1,5 +1,5 @@
 import { CursorFluidShader } from '../components/CursorFluidShader.jsx'
-import signature from './assets/signature.svg?raw'
+import { Footer } from '../components/Footer.jsx'
 
 export function Page() {
   function dateDiffDays(date1, date2) {
@@ -26,7 +26,7 @@ export function Page() {
     <>
       <CursorFluidShader />
       <main className="p-6 flex flex-col gap-3 max-w-xl text-justify mix-blend-exclusion">
-        <h1 className="text-6xl">about</h1>
+        <h1>about</h1>
 
         <p>
           Hi, I'm Victor Garcia, a {age} years old web developer, indie game
@@ -65,12 +65,9 @@ export function Page() {
           </a>{' '}
           or <a href="/projects">projects page</a> to see the rest of my work.
         </p>
-
-        <div
-          className="signature"
-          dangerouslySetInnerHTML={{ __html: signature }}
-        ></div>
       </main>
+
+      <Footer />
     </>
   )
 }
