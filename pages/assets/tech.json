@@ -2178,5 +2178,12 @@
     "category": "Language",
     "url": "https://ocaml.org/",
     "custom": true
+  },
+  {
+    "name": "Htmx",
+    "icon": "./public/tech/htmx.png",
+    "category": "Library",
+    "url": "https://htmx.org/",
+    "custom": true
   }
 ]
