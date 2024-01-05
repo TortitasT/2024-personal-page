@@ -1,4 +1,3 @@
-import { CursorFluidShader } from '../components/CursorFluidShader.jsx'
 import { Footer } from '../components/Footer.jsx'
 
 export function Page() {
@@ -24,7 +23,6 @@ export function Page() {
 
   return (
     <>
-      <CursorFluidShader />
       <main className="p-6 flex flex-col gap-3 max-w-xl text-justify mix-blend-exclusion">
         <h1>about</h1>
 
