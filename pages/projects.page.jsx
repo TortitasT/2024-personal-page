@@ -238,7 +238,12 @@ export function Page() {
       .map((technology) => {
         return {
           ...technology,
+
           search_score: similarity(technology.name, search.toLowerCase()),
+          alias_score: technology.alias
+            ? similarity(technology.alias, search.toLowerCase())
+            : 0,
+
           projects_count: projects.filter((project) => {
             return (
               project.technologies.includes(technology.name.toLowerCase()) ||
@@ -249,6 +254,9 @@ export function Page() {
       })
       .sort((a, b) => {
         return b.projects_count - a.projects_count
+      })
+      .sort((a, b) => {
+        return b.alias_score - a.alias_score
       })
       .sort((a, b) => {
         return b.search_score - a.search_score
