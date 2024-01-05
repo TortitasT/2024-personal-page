@@ -1,4 +1,4 @@
-import { Footer } from '../components/Footer.jsx'
+import { Footer } from '../../components/Footer.jsx'
 
 export function Page() {
   function dateDiffDays(date1, date2) {

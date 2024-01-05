@@ -1,10 +1,10 @@
 import { useState, useMemo, useEffect, useRef } from 'preact/hooks'
-import { Search } from '../components/Search.jsx'
-import { similarity } from '../lib/similarity.js'
-import { Footer } from '../components/Footer.jsx'
+import { Search } from '../../components/Search.jsx'
+import { similarity } from '../../lib/similarity.js'
+import { Footer } from '../../components/Footer.jsx'
 
-import tech from './assets/tech.json'
-import projects from './assets/projects.json'
+import tech from '../assets/tech.json'
+import projects from '../assets/projects.json'
 
 const SHOWN_CATEGORIES = [
   'Language',

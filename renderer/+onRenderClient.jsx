@@ -1,4 +1,4 @@
-export { render }
+export { render as onRenderClient }
 
 import { hydrate } from 'preact'
 import { PageShell } from './PageShell'

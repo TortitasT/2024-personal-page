@@ -13,6 +13,7 @@
     "bin:download-all": "pnpm run bin:download-tech && pnpm run bin:download-projects"
   },
   "dependencies": {
+    "@mdx-js/rollup": "^3.0.0",
     "gsap": "^3.12.2",
     "preact": "^10.16.0",
     "preact-render-to-string": "^6.2.0"

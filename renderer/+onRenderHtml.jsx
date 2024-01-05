@@ -1,6 +1,4 @@
-export { render }
-// See https://vike.dev/data-fetching
-export const passToClient = ['pageProps', 'urlPathname']
+export { render as onRenderHtml }
 
 import { renderToString } from 'preact-render-to-string'
 import { PageShell } from './PageShell'
