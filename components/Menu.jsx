@@ -72,6 +72,9 @@ function Menu() {
         <a href="/projects" className="text-white">
           Projects
         </a>
+        <a href="/blog" className="text-white">
+          Blog
+        </a>
       </nav>
     </div>
   )

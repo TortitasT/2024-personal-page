@@ -83,3 +83,11 @@ select {
 .border-primary {
   @apply border border-gray-200/20 rounded-md;
 }
+
+.mdx > h1:first-child {
+  @apply mt-0;
+}
+
+.mdx > h2 {
+  @apply mt-8 mb-4 text-4xl font-bold;
+}
