@@ -99,6 +99,7 @@
   },
   {
     "name": "Vite.js",
+    "alias": "Vite",
     "icon": "./public/tech/vite.js.svg",
     "category": "Compiler",
     "url": "https://vitejs.dev"
