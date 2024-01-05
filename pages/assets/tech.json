@@ -2187,5 +2187,13 @@
     "category": "Library",
     "url": "https://htmx.org/",
     "custom": true
+  },
+  {
+    "name": "Jetpack Compose",
+    "alias": "jetpack-compose",
+    "icon": "./public/tech/android.svg",
+    "category": "Framework",
+    "url": "https://developer.android.com/jetpack/compose",
+    "custom": true
   }
 ]

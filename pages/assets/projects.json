@@ -57,7 +57,7 @@
     "description": "Delivery app mockup made in Jetpack Compose for DAM2",
     "owner": "TortitasT",
     "fork": false,
-    "technologies": ["kotlin", "makefile", "jetpack-compose"],
+    "technologies": ["kotlin", "makefile", "android", "jetpack-compose"],
     "url": "https://github.com/TortitasT/dam2-delivery",
     "updated_at": "2023-12-03T20:03:33Z"
   },
@@ -429,7 +429,7 @@
     "description": "Compile HTML files with support for includes and SASS compilation",
     "owner": "TortitasT",
     "fork": false,
-    "technologies": ["typescript", "html", "scss"],
+    "technologies": ["typescript", "html", "scss", "deno"],
     "url": "https://github.com/TortitasT/htemele",
     "updated_at": "2023-03-07T22:49:33Z"
   },
@@ -791,4 +791,3 @@
     "updated_at": "2013-06-29T09:11:18Z"
   }
 ]
-
