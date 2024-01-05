@@ -2,15 +2,24 @@ export { Search }
 
 import { useEffect, useRef } from 'preact/hooks'
 
-function Search({ setSearch, search }) {
+function Search({ setSearch, search, setSelected }) {
   const input = useRef(null)
 
   useEffect(() => {
-    document.addEventListener('keydown', (e) => {
+    const keydownCallback = (e) => {
       if (e.key === 'Escape') {
         input.current?.blur()
       }
-    })
+    }
+
+    if (search.length === 0) {
+      setSelected(0)
+    }
+
+    document.addEventListener('keydown', keydownCallback)
+    return () => {
+      document.removeEventListener('keydown', keydownCallback)
+    }
   })
 
   return (
