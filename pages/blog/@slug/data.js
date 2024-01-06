@@ -1,4 +1,6 @@
-import { render } from 'vike/abort'
+import { render as vikeRender } from 'vike/abort'
+import render from 'preact-render-to-string'
+import { h } from 'preact'
 
 export async function data(pageContext) {
   try {
@@ -6,11 +8,14 @@ export async function data(pageContext) {
       routeParams: { slug },
     } = pageContext
 
-    const mdx = await import(`../../../blog/${slug}.mdx`)
+    const postHtml = render(
+      h((await import(`../../../blog/${slug}.mdx`)).default)
+    )
     return {
-      mdx,
+      postHtml,
     }
   } catch (error) {
-    throw render(404, 'Blog post not found')
+    console.error(error)
+    throw vikeRender(404, 'Blog post not found')
   }
 }

@@ -15,7 +15,7 @@ dependencies:
     specifier: ^10.16.0
     version: 10.19.3
   preact-render-to-string:
-    specifier: ^6.2.0
+    specifier: ^6.3.1
     version: 6.3.1(preact@10.19.3)
   remark-frontmatter:
     specifier: ^5.0.0

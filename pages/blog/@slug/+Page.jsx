@@ -7,15 +7,16 @@ import { Footer } from '../../../components/Footer.jsx'
 function Page() {
   const {
     routeParams: { slug },
-    data: { mdx },
+    data: { postHtml },
   } = usePageContext()
 
   return (
     <>
       <main className="max-w-[800px] mx-auto">
-        <article className="mdx pl-4 pr-4 mb-4">
-          {mdx && <mdx.default />}
-        </article>
+        <article
+          className="mdx pl-4 pr-4 mb-4"
+          dangerouslySetInnerHTML={{ __html: postHtml }}
+        ></article>
         <Footer />
       </main>
     </>
