@@ -7,17 +7,12 @@ import { Footer } from '../../../components/Footer.jsx'
 function Page() {
   const {
     routeParams: { slug },
+    data: { mdx },
   } = usePageContext()
-  const [mdx, setMdx] = useState(null)
-
-  useEffect(async () => {
-    const mdx = await import(`../../../blog/${slug}.mdx`)
-    setMdx(mdx)
-  })
 
   return (
     <>
-      <main className="max-w-[800px] m-auto">
+      <main className="max-w-[800px] mx-auto">
         <article className="mdx pl-4 pr-4 mb-4">
           {mdx && <mdx.default />}
         </article>

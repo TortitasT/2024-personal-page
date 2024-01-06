@@ -1,12 +1,15 @@
 import { render } from 'vike/abort'
 
-export async function guard(pageContext) {
+export async function data(pageContext) {
   try {
     const {
       routeParams: { slug },
     } = pageContext
 
-    await import(`../../../blog/${slug}.mdx`)
+    const mdx = await import(`../../../blog/${slug}.mdx`)
+    return {
+      mdx,
+    }
   } catch (error) {
     throw render(404, 'Blog post not found')
   }

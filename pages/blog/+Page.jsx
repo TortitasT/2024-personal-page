@@ -1,11 +1,26 @@
 export { Page }
 
+import { usePageContext } from '../../renderer/usePageContext.jsx'
+import { Footer } from '../../components/Footer.jsx'
+
 function Page() {
+  const {
+    data: { posts },
+  } = usePageContext()
+
   return (
-    <div>
+    <main className="max-w-[800px] mx-auto">
       <h1>Blog</h1>
 
-      <a href="/blog/arch-tp-link-archer-t2u">arch-tp-link-archer-t2u</a>
-    </div>
+      <ul>
+        {posts.map((post) => (
+          <li>
+            <a href={post.path}>{post.title}</a>
+          </li>
+        ))}
+      </ul>
+
+      <Footer />
+    </main>
   )
 }
