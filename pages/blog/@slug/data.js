@@ -30,6 +30,6 @@ export async function data(pageContext) {
     }
   } catch (error) {
     console.error(error)
-    throw vikeRender(404, 'Blog post not found')
+    throw vikeRender(522, 'Blog post not found')
   }
 }
