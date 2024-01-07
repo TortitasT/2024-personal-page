@@ -65,7 +65,7 @@ select {
 }
 
 .text--aws {
-  color: #ff9900;
+  color: #ffc060;
 }
 
 .text--nuxt {
@@ -73,15 +73,15 @@ select {
 }
 
 .text--laravel {
-  color: #ff2d20;
+  color: #ff5f55;
 }
 
 .text--rust {
-  color: #ef4a00;
+  color: #ff8a3a;
 }
 
 .text--go {
-  color: #00acd7;
+  color: #a4edff;
 }
 
 .border-primary {
