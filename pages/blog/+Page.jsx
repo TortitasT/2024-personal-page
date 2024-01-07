@@ -10,18 +10,22 @@ function Page() {
 
   return (
     <>
-      <main className="max-w-[800px] mx-auto">
-        <h1>Blog</h1>
+      <main className="max-w-[800px] mx-auto px-4">
+        <h1 className="mb-8">Blog</h1>
 
-        <ul>
+        <div className="flex flex-col gap-4">
           {posts
             .sort((a, b) => new Date(b.date) - new Date(a.date))
             .map((post) => (
-              <li>
-                <a href={`/blog/${post.slug}`}>{post.title}</a>
-              </li>
+              <a href={`/blog/${post.slug}`} className="flex flex-col gap-2">
+                <div className="flex justify-between">
+                  <h2>{post.title}</h2>
+                  <p className="opacity-75">{post.date}</p>
+                </div>
+                <p className="text-sm opacity-75">{post.description}</p>
+              </a>
             ))}
-        </ul>
+        </div>
       </main>
       <Footer className="max-w-[800px] w-full mx-auto" />
     </>

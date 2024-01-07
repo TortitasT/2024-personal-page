@@ -16,9 +16,12 @@
     "@mdx-js/rollup": "^3.0.0",
     "clsx": "^2.1.0",
     "gsap": "^3.12.2",
+    "highlight.js": "^11.9.0",
     "preact": "^10.16.0",
     "preact-render-to-string": "^6.3.1",
-    "remark-frontmatter": "^5.0.0"
+    "remark-frontmatter": "^5.0.0",
+    "to-vfile": "^8.0.0",
+    "vfile-matter": "^5.0.0"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.5.0",

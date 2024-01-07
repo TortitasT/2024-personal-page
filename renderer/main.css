@@ -99,3 +99,13 @@ select {
 .mdx > p {
   @apply mb-4;
 }
+
+.mdx > pre {
+  /* white-space: pre-wrap; */
+  /* word-break: break-word; */
+  @apply max-w-full overflow-x-auto mb-4;
+}
+
+.mdx > pre > code {
+  @apply rounded-md;
+}
