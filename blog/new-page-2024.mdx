@@ -1,0 +1,32 @@
+---
+title: 'New website for 2024'
+description: 'I talk about the making of this new website for the year 2024'
+date: 07/01/2024
+---
+
+First of all here's a link to the [source code](https://github.com/TortitasT/2024-personal-page/) of this website.
+
+## Technologies used
+
+- [Preact](https://preactjs.com/) for the UI
+- [MDX](https://mdxjs.com/) for the blog posts
+- [TailwindCSS](https://tailwindcss.com/) for the styling
+- [Vite](https://vitejs.dev/) for the bundling
+- [Vike](https://vike.dev/) for the routing and ssr
+- [Vercel](https://vercel.com/) for the hosting
+
+## Why?
+
+I wanted to try out some new technologies, specially JSX. I've been working with Vue for 2 years and even though I love it I also wanted to have some experience in React.
+
+## How?
+
+I started by creating a new Vite project with the Preact Vite template following [the getting started at Preact's website](https://preactjs.com/guide/v10/getting-started#create-a-vite-powered-preact-app).
+
+Then I added a WebGL shader effect to the main page, I used and modified the code from [this CodePen](https://codepen.io/DedaloD/pen/PoJGKOb) by [Dennys Dionigi](https://codepen.io/DedaloD).
+
+After that I added the projects section, where you can filter my projects by technologies. I seed the projects from GitHub using the [GitHub API](https://docs.github.com/en/rest) and the technologies with its logos from [svgl API](https://svgl.vercel.app/). I save all the information on JSON files and import them on the projects page.
+
+I had a lot of fun making the search bar for that page.
+
+Then I added the blog section, I used MDX for the blog posts. It was hard to understand how to use it with Vite at first but after reading the documentation and some articles I got it working.

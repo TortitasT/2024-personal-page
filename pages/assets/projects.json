@@ -19,8 +19,7 @@
       "nu"
     ],
     "url": "https://github.com/TortitasT/dotfiles",
-    "updated_at": "2024-01-02T08:47:59Z",
-    "pinned": true
+    "updated_at": "2024-01-02T08:47:59Z"
   },
   {
     "name": "langkeeper",
@@ -30,8 +29,7 @@
     "fork": false,
     "technologies": ["rust", "html", "htmx", "css", "dockerfile", "actix"],
     "url": "https://github.com/TortitasT/langkeeper",
-    "updated_at": "2023-12-29T18:30:54Z",
-    "pinned": true
+    "updated_at": "2023-12-29T18:30:54Z"
   },
   {
     "name": "langkeeper.nvim",
@@ -91,7 +89,6 @@
     "fork": false,
     "technologies": ["go", "shell", "java", "lua"],
     "url": "https://github.com/TortitasT/ja",
-    "pinned": true,
     "updated_at": "2023-10-24T15:43:32Z"
   },
   {

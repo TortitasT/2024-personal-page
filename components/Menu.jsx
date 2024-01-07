@@ -69,16 +69,16 @@ function Menu() {
         style="transition: none 0s ease 0s; transform: translate(100px); translate: none; rotate: none; scale: none; opacity: 0;"
       >
         <a href="/" className="text-white">
-          Home
+          home
         </a>
         <a href="/about" className="text-white">
-          About
+          about
         </a>
         <a href="/projects" className="text-white">
-          Projects
+          projects
         </a>
         <a href="/blog" className="text-white">
-          Blog
+          blog
         </a>
       </nav>
     </div>

@@ -287,26 +287,26 @@ export function Page() {
   })
 
   const filteredProjects = useMemo(() => {
-    const orderedProjects = projects
-      .sort((a, b) => {
-        return new Date(a.updated_at) - new Date(b.updated_at)
+    const order = (projects) => {
+      return projects.sort((a, b) => {
+        return new Date(b.updated_at) - new Date(a.updated_at)
       })
-      .sort((a, b) => {
-        return a.pinned ? -1 : 1
-      })
-
-    if (filters.length === 0) {
-      return orderedProjects
     }
 
-    return orderedProjects.filter((project) => {
-      return filters.some((filter) => {
-        return (
-          project.technologies.includes(filter.name.toLowerCase()) ||
-          project.technologies.includes(filter.alias?.toLowerCase())
-        )
+    if (filters.length === 0) {
+      return order(projects)
+    }
+
+    return order(
+      projects.filter((project) => {
+        return filters.some((filter) => {
+          return (
+            project.technologies.includes(filter.name.toLowerCase()) ||
+            project.technologies.includes(filter.alias?.toLowerCase())
+          )
+        })
       })
-    })
+    )
   })
 
   const topTechnologiesOfTheYear = useMemo(() => {
