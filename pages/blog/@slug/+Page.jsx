@@ -20,7 +20,7 @@ function Page() {
 
   return (
     <>
-      <main className="mx-auto max-w-full md:max-w-screen-md px-4">
+      <main className="mx-auto max-w-full md:max-w-screen-md p-4 sm:p-6">
         <a href="/blog">← Back</a>
         <h1 className="text-3xl md:text-5xl mt-4 opacity-75">{post.title}</h1>
         <article

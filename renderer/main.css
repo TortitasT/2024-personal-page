@@ -58,6 +58,10 @@ main > * {
   @apply z-10;
 }
 
+main h1:first-child {
+  @apply text-6xl my-8 md:mt-16;
+}
+
 h1 {
   @apply text-6xl mb-8;
 }

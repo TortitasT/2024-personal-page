@@ -10,8 +10,8 @@ function Page() {
 
   return (
     <>
-      <main className="max-w-[800px] mx-auto px-4">
-        <h1>Blog</h1>
+      <main className="p-4 sm:p-6 max-w-[800px] mx-auto">
+        <h1>blog</h1>
 
         <div className="flex flex-col gap-4">
           {posts

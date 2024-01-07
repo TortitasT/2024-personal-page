@@ -17,7 +17,7 @@ export function Page() {
 
   return (
     <>
-      <main className="p-6 max-w-xl text-justify mix-blend-exclusion">
+      <main className="p-4 sm:p-6 max-w-xl text-justify mix-blend-exclusion">
         <h1>about</h1>
 
         <p>
