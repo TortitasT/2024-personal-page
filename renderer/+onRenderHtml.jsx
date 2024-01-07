@@ -30,6 +30,9 @@ async function render(pageContext) {
 			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 			<meta name="color-scheme" content="light dark" />
 			<meta name="description" content="${desc}" />
+      <link rel="preload" href="/fonts/RobotoSlab-Bold.ttf" as="font" type="font/ttf" crossorigin />
+      <link rel="preload" href="/fonts/RobotoSlab-Regular.ttf" as="font" type="font/ttf" crossorigin />
+      <link rel="preload" href="/fonts/RobotoSlab-Light.ttf" as="font" type="font/ttf" crossorigin />
 			<title>${title}</title>
 		</head>
 		<body>
