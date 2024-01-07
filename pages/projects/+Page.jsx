@@ -317,7 +317,7 @@ export function Page() {
 
   return (
     <>
-      <main className="p-4 sm:p-6 flex flex-col gap-8 text-justify mix-blend-exclusion">
+      <main className="p-4 sm:p-6 flex flex-col gap-4 text-justify mix-blend-exclusion">
         <h1>projects</h1>
 
         <div className="flex gap-6 items-end flex-wrap-reverse">

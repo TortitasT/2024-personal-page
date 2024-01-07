@@ -35,7 +35,7 @@ main > * {
 }
 
 h1 {
-  @apply text-6xl mb-3;
+  @apply text-6xl mb-8;
 }
 
 p {

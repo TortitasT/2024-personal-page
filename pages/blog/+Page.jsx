@@ -11,7 +11,7 @@ function Page() {
   return (
     <>
       <main className="max-w-[800px] mx-auto px-4">
-        <h1 className="mb-8">Blog</h1>
+        <h1>Blog</h1>
 
         <div className="flex flex-col gap-4">
           {posts
