@@ -10,18 +10,18 @@ export async function data(pageContext) {
       routeParams: { slug },
     } = pageContext
 
-    const path = `blog/${slug}.mdx`
-    const file = await read(path)
-    matter(file)
+    // const path = `blog/${slug}.mdx`
+    // const file = await read(path)
+    // matter(file)
 
     const mdx = await import(`../../../blog/${slug}.mdx`)
     const postHtml = render(h(mdx.default))
 
     return {
       post: {
-        title: file.data.matter.title,
-        description: file.data.matter.description,
-        date: file.data.matter.date,
+        // title: file.data.matter.title,
+        // description: file.data.matter.description,
+        // date: file.data.matter.date,
         slug,
         html: postHtml,
       },
