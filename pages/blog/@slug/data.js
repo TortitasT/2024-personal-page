@@ -14,8 +14,6 @@ export async function data(pageContext) {
     const file = await read(path)
     matter(file)
 
-    console.log(file)
-
     const mdx = await import(`../../../blog/${slug}.mdx`)
     const postHtml = render(h(mdx.default))
 
@@ -30,6 +28,6 @@ export async function data(pageContext) {
     }
   } catch (error) {
     console.error(error)
-    throw vikeRender(522, 'Blog post not found')
+    throw vikeRender(404, 'Blog post not found')
   }
 }
