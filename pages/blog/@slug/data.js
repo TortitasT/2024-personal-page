@@ -1,8 +1,6 @@
 import { render as vikeRender } from 'vike/abort'
 import render from 'preact-render-to-string'
 import { h } from 'preact'
-import { read } from 'to-vfile'
-import { matter } from 'vfile-matter'
 
 export async function data(pageContext) {
   try {
@@ -10,18 +8,14 @@ export async function data(pageContext) {
       routeParams: { slug },
     } = pageContext
 
-    // const path = `blog/${slug}.mdx`
-    // const file = await read(path)
-    // matter(file)
-
     const mdx = await import(`../../../blog/${slug}.mdx`)
     const postHtml = render(h(mdx.default))
 
     return {
       post: {
-        // title: file.data.matter.title,
-        // description: file.data.matter.description,
-        // date: file.data.matter.date,
+        title: mdx.frontmatter.title,
+        description: mdx.frontmatter.description,
+        date: mdx.frontmatter.date,
         slug,
         html: postHtml,
       },
