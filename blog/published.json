@@ -1,0 +1,14 @@
+[
+  {
+    "slug": "motd",
+    "title": "Colored message of the day on an Ubuntu machine as a mistake prevention technique",
+    "description": "A simple way to wake you up when login in into a server terminal",
+    "date": "07/06/2023"
+  },
+  {
+    "slug": "arch-tp-link-archer-t2u",
+    "title": "How to get TP-LINK Archer T2U working in Arch Linux",
+    "description": "Finally solving a lifetime problem with the drivers of this adapter.",
+    "date": "12/08/2023"
+  }
+]

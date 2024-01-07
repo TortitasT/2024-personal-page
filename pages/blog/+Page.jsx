@@ -9,18 +9,21 @@ function Page() {
   } = usePageContext()
 
   return (
-    <main className="max-w-[800px] mx-auto">
-      <h1>Blog</h1>
+    <>
+      <main className="max-w-[800px] mx-auto">
+        <h1>Blog</h1>
 
-      <ul>
-        {posts.map((post) => (
-          <li>
-            <a href={post.path}>{post.title}</a>
-          </li>
-        ))}
-      </ul>
-
-      <Footer />
-    </main>
+        <ul>
+          {posts
+            .sort((a, b) => new Date(b.date) - new Date(a.date))
+            .map((post) => (
+              <li>
+                <a href={`/blog/${post.slug}`}>{post.title}</a>
+              </li>
+            ))}
+        </ul>
+      </main>
+      <Footer className="max-w-[800px] w-full mx-auto" />
+    </>
   )
 }

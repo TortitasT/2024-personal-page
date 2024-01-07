@@ -23,7 +23,7 @@ export function Page() {
 
   return (
     <>
-      <main className="p-6 flex flex-col gap-3 max-w-xl text-justify mix-blend-exclusion">
+      <main className="p-6 max-w-xl text-justify mix-blend-exclusion">
         <h1>about</h1>
 
         <p>

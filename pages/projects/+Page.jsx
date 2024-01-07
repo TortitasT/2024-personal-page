@@ -369,7 +369,7 @@ export function Page() {
               them.
             </p>
 
-            <p className="mt-4">
+            <p>
               My top 3 technologies of the year are{' '}
               {topTechnologiesOfTheYear
                 .sort((a, b) => {
