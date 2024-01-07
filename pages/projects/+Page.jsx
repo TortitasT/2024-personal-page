@@ -190,7 +190,8 @@ function SearchResults({ filteredProjects, filters, setFilters }) {
           <a
             href={project.url}
             target="_blank"
-            className="cursor-pointer p-4 grid grid-cols-1 md:grid-cols-2  gap-2 border-primary"
+            className="cursor-pointer p-4 grid grid-cols-1 md:grid-cols-2  gap-2 border-primary hover:border-gray-400 transition-colors hover:no-underline"
+            title="Open project page"
           >
             <div>
               <h2 className="text-2xl">{project.name}</h2>
@@ -368,7 +369,7 @@ export function Page() {
               them.
             </p>
 
-            <p className="mt-4">
+            <p>
               My top 3 technologies of the year are{' '}
               {topTechnologiesOfTheYear
                 .sort((a, b) => {

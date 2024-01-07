@@ -1,10 +1,16 @@
 export { Footer }
 
 import { Signature } from '../components/Signature.jsx'
+import clsx from 'clsx'
 
-function Footer(params) {
+function Footer({ className }) {
   return (
-    <footer className="mt-auto border-t-0 border-gray-200/20 ml-4 mr-4 mb-2 md:ml-6 md:mr-6 grid grid-cols-2 md:grid-cols-3">
+    <footer
+      className={clsx(
+        'mt-auto px-4 pb-2 md:px-6 grid grid-cols-2 md:grid-cols-3',
+        className
+      )}
+    >
       <div>
         <Signature />
       </div>

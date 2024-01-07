@@ -35,7 +35,11 @@ main > * {
 }
 
 h1 {
-  @apply text-6xl;
+  @apply text-6xl mb-3;
+}
+
+p {
+  @apply mb-2;
 }
 
 a {
@@ -82,4 +86,26 @@ select {
 
 .border-primary {
   @apply border border-gray-200/20 rounded-md;
+}
+
+.mdx > h1:first-child {
+  @apply mt-0;
+}
+
+.mdx > h2 {
+  @apply mt-8 mb-4 text-4xl font-bold;
+}
+
+.mdx > p {
+  @apply mb-4;
+}
+
+.mdx > pre {
+  /* white-space: pre-wrap; */
+  /* word-break: break-word; */
+  @apply max-w-full overflow-x-auto mb-4;
+}
+
+.mdx > pre > code {
+  @apply rounded-md;
 }
