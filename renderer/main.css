@@ -89,11 +89,11 @@ select {
 }
 
 .mdx > h2 {
-  @apply mt-8 mb-4 text-4xl font-bold;
+  @apply text-2xl md:text-4xl mt-8 mb-4 font-bold;
 }
 
 .mdx > h3 {
-  @apply mt-8 mb-4 text-3xl font-bold;
+  @apply text-xl md:text-3xl mt-8 mb-4 font-bold;
 }
 
 .mdx > p {
