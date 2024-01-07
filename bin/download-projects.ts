@@ -9,6 +9,7 @@ interface project {
   technologies: string[]
   url: string
   updated_at?: string
+  pinned?: boolean
 }
 
 const API_KEY = process.env.GITHUB_API_KEY
@@ -58,6 +59,7 @@ function saveProject(project: project) {
     )
   } catch (e) {}
 
+  // TODO: handle current pinned projects
   projects = projects.filter((p) => p.name !== project.name)
   projects.push(project)
 
