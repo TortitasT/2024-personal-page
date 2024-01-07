@@ -88,16 +88,16 @@ select {
   @apply border border-gray-200/20 rounded-md;
 }
 
-.mdx > h1:first-child {
-  @apply mt-0;
-}
-
 .mdx > h2 {
   @apply mt-8 mb-4 text-4xl font-bold;
 }
 
+.mdx > h3 {
+  @apply mt-8 mb-4 text-3xl font-bold;
+}
+
 .mdx > p {
-  @apply mb-4;
+  @apply mb-4 text-justify;
 }
 
 .mdx > pre {
