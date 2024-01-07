@@ -25,17 +25,17 @@ export function Page() {
           developer and programming enthusiast.
         </p>
 
-        <p>
-          I currently work at{' '}
-          <a href="https://descom.es" target="_blank">
-            Descom.es
-          </a>
-          , a software company based on La Nucia, Spain.
-          {/* where I work with{' '} */}
-          {/* <span class="text--aws">AWS</span>,{' '} */}
-          {/* <span class="text--nuxt">Nuxt.js</span> and{' '} */}
-          {/* <span class="text--laravel">Laravel</span>. */}
-        </p>
+        {/* <p> */}
+        {/*   I currently work at{' '} */}
+        {/*   <a href="https://descom.es" target="_blank"> */}
+        {/*     Descom.es */}
+        {/*   </a> */}
+        {/*   , a software company based on La Nucia, Spain. */}
+        {/*   where I work with{' '} */}
+        {/*   <span class="text--aws">AWS</span>,{' '} */}
+        {/*   <span class="text--nuxt">Nuxt.js</span> and{' '} */}
+        {/*   <span class="text--laravel">Laravel</span>. */}
+        {/* </p> */}
 
         <p>
           I have {descomExperience} years of professional experience with{' '}
