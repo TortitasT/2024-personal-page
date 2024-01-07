@@ -4,6 +4,7 @@ import ssr from 'vike/plugin'
 import mdx from '@mdx-js/rollup'
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
+import rehypeExternalLinks from 'rehype-external-links'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,6 +13,7 @@ export default defineConfig({
     ssr({ prerender: true }),
     mdx({
       remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
+      rehypePlugins: [[rehypeExternalLinks, { target: '_blank' }]],
       jsxImportSource: 'preact',
     }),
   ],
