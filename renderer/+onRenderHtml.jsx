@@ -33,6 +33,15 @@ async function render(pageContext) {
       <link rel="preload" href="/fonts/RobotoSlab-Bold.ttf" as="font" type="font/ttf" crossorigin />
       <link rel="preload" href="/fonts/RobotoSlab-Regular.ttf" as="font" type="font/ttf" crossorigin />
       <link rel="preload" href="/fonts/RobotoSlab-Light.ttf" as="font" type="font/ttf" crossorigin />
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-0GHN93VJVC"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-0GHN93VJVC');
+      </script>
 			<title>${title}</title>
 		</head>
 		<body>

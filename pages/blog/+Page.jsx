@@ -18,9 +18,9 @@ function Page() {
             .sort((a, b) => new Date(b.date) - new Date(a.date))
             .map((post) => (
               <a href={`/blog/${post.slug}`} className="flex flex-col gap-2">
-                <div className="flex justify-between">
+                <div className="flex justify-between gap-[0.25em]">
                   <h2>{post.title}</h2>
-                  <p className="text-white/80 text-right">{post.date}</p>
+                  <div className="text-white/80 text-right">{post.date}</div>
                 </div>
                 <p className="text-sm text-white/80">{post.description}</p>
               </a>

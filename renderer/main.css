@@ -67,7 +67,7 @@ h1 {
 }
 
 p {
-  @apply mb-2;
+  @apply mb-2 text-white/80;
 }
 
 a {
