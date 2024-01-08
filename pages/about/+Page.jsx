@@ -1,4 +1,5 @@
 import { Footer } from '../../components/Footer.jsx'
+import { TestTransition } from '../../components/TestTransition.jsx'
 
 export function Page() {
   function dateDiffDays(date1, date2) {
@@ -19,6 +20,8 @@ export function Page() {
     <>
       <main className="p-4 sm:p-6 max-w-xl text-justify mix-blend-exclusion">
         <h1>hi! i'm Victor 👋</h1>
+
+        <TestTransition />
 
         <p>
           A {age}-year-old web developer, indie game developer and programming
