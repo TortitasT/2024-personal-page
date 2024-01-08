@@ -18,11 +18,11 @@ export function Page() {
   return (
     <>
       <main className="p-4 sm:p-6 max-w-xl text-justify mix-blend-exclusion">
-        <h1>about</h1>
+        <h1>hi! i'm Victor 👋</h1>
 
         <p>
-          Hi, I'm Victor Garcia, a {age}-year-old web developer, indie game
-          developer and programming enthusiast.
+          A {age}-year-old web developer, indie game developer and programming
+          enthusiast.
         </p>
 
         {/* <p> */}

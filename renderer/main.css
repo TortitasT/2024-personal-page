@@ -59,7 +59,7 @@ main > * {
 }
 
 main h1:first-child {
-  @apply text-6xl my-8 md:mt-16;
+  @apply text-6xl my-8 md:mt-16 text-left;
 }
 
 h1 {
