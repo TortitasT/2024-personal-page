@@ -36,18 +36,11 @@ async function render(pageContext) {
       <!-- Google tag (gtag.js) -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-0GHN93VJVC"></script>
       <script>
-        if (!window.navigator.userAgent.includes('Google Page Speed Insights')) {
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-          gtag('config', 'G-0GHN93VJVC');
-
-        }
-
-          window.addEventListener('load', () => {
-            document.body.innerHTML = window.navigator.userAgent
-          });
+        gtag('config', 'G-0GHN93VJVC');
       </script>
 			<title>${title}</title>
 		</head>
