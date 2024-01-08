@@ -15,7 +15,10 @@ export async function data(pageContext) {
       post: {
         title: mdx.frontmatter.title,
         description: mdx.frontmatter.description,
-        date: mdx.frontmatter.date,
+        date: new Intl.DateTimeFormat('en-GB', {
+          dateStyle: 'full',
+          timeZone: 'Australia/Sydney',
+        }).format(new Date(mdx.frontmatter.date)),
         slug,
         html: postHtml,
       },

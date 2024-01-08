@@ -20,11 +20,14 @@ function Page() {
 
   return (
     <>
-      <main className="mx-auto max-w-full md:max-w-screen-md p-4 sm:p-6">
+      <main className="mx-auto max-w-full md:max-w-screen-md p-4 sm:p-6 flex flex-col gap-4">
         <a href="/blog">← Back</a>
-        <h1 className="text-3xl md:text-5xl mt-4 opacity-75">{post.title}</h1>
+
+        <h1 className="text-3xl md:text-5xl mb-0">{post.title}</h1>
+        <small className="text-white/80">{post.date}</small>
+
         <article
-          className="mdx mb-4"
+          className="mdx"
           dangerouslySetInnerHTML={{ __html: post.html }}
         ></article>
       </main>

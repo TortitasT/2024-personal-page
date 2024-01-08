@@ -20,9 +20,9 @@ function Page() {
               <a href={`/blog/${post.slug}`} className="flex flex-col gap-2">
                 <div className="flex justify-between">
                   <h2>{post.title}</h2>
-                  <p className="opacity-75">{post.date}</p>
+                  <p className="text-white/80 text-right">{post.date}</p>
                 </div>
-                <p className="text-sm opacity-75">{post.description}</p>
+                <p className="text-sm text-white/80">{post.description}</p>
               </a>
             ))}
         </div>
