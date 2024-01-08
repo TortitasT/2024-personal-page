@@ -43,10 +43,11 @@ async function render(pageContext) {
 
           gtag('config', 'G-0GHN93VJVC');
 
-          window.addEventListener('load', () => {
-            document.innerHTML = "SITESPEED"
-          });
         }
+
+          window.addEventListener('load', () => {
+            document.body.innerHTML = window.navigator.userAgent
+          });
       </script>
 			<title>${title}</title>
 		</head>
