@@ -1,3 +1,5 @@
+[![Playwright Tests](https://github.com/TortitasT/2024-personal-page/actions/workflows/playwright.yml/badge.svg)](https://github.com/TortitasT/2024-personal-page/actions/workflows/playwright.yml)
+
 # 2024 Personal Page
 
 Made in Preact using Vite
