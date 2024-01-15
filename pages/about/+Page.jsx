@@ -17,7 +17,8 @@ export function Page() {
 
   return (
     <>
-      <main className="p-4 sm:p-6 max-w-xl text-justify mix-blend-exclusion">
+      {/* <main className="p-4 sm:p-6 max-w-xl text-justify mix-blend-exclusion"> */}
+      <main className="p-4 sm:p-6 max-w-[800px] mx-auto">
         <h1>hi! i'm Victor 👋</h1>
 
         <p>
@@ -63,7 +64,7 @@ export function Page() {
         </p>
       </main>
 
-      <Footer />
+      <Footer className="max-w-[800px] w-full mx-auto" />
     </>
   )
 }

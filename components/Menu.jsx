@@ -1,5 +1,7 @@
 import { useRef, useEffect } from 'preact/hooks'
+import clsx from 'clsx'
 import { gsap } from 'gsap'
+import { usePageContext } from '../renderer/usePageContext.jsx'
 
 export { Menu }
 
@@ -50,12 +52,34 @@ function Menu() {
     buttonState = !buttonState
   }
 
+  const pageContext = usePageContext()
+
+  function computeStyles() {
+    const isHome = pageContext.urlPathname === '/'
+
+    return {
+      div: clsx(
+        'p-6 flex justify-end fixed top-0 bottom-0 left-0 right-0 z-20 pointer-events-none',
+        {
+          'mix-blend-exclusion': isHome,
+        }
+      ),
+      nav: clsx(
+        'flex flex-col gap-2 absolute top-0 bottom-0 right-2 text-xl pointer-events-auto px-4 pt-14',
+        {
+          'bg-black/75 backdrop-blur-sm border-l border-white/10': !isHome,
+        }
+      ),
+    }
+  }
+  const styles = computeStyles()
+
   return (
-    <div className="mix-blend-exclusion p-6 flex justify-end fixed top-0 left-0 right-0 z-20 pointer-events-none">
+    <div className={styles.div}>
       <button
         ref={button}
         onClick={toggleMenu}
-        className="flex flex-col gap-2 pointer-events-auto"
+        className="flex flex-col gap-2 pointer-events-auto z-30"
         title="Open navigation menu"
       >
         <div ref={buttonBar1} className="w-6 h-[2px] bg-white"></div>
@@ -65,7 +89,7 @@ function Menu() {
 
       <nav
         ref={menu}
-        className="flex flex-col gap-2 absolute top-16 right-6 text-xl z-20 pointer-events-auto"
+        className={styles.nav}
         style="transition: none 0s ease 0s; transform: translate(100px); translate: none; rotate: none; scale: none; opacity: 0;"
       >
         <a href="/" className="text-white">
