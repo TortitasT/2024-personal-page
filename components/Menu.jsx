@@ -67,7 +67,7 @@ function Menu() {
       nav: clsx(
         'flex flex-col gap-2 absolute top-0 bottom-0 right-2 text-xl pointer-events-auto px-4 pt-14',
         {
-          'bg-black/75 backdrop-blur-sm border-l border-white/10': !isHome,
+          'bg-black/50 backdrop-blur-sm border-l border-white/10': !isHome,
         }
       ),
     }
