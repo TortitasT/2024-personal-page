@@ -28,6 +28,8 @@ async function render(pageContext) {
 			<meta charset="UTF-8" />
 			<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <!-- Allow scripts from this domain, inline and from google analytics -->
+      <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://www.googletagmanager.com/gtag/js">
 			<meta name="color-scheme" content="light dark" />
 			<meta name="description" content="${desc}" />
       <link rel="preload" href="/fonts/RobotoSlab-Bold.ttf" as="font" type="font/ttf" crossorigin />

@@ -16,7 +16,7 @@ jobs:
           run_install: |
             - recursive: true
               args: [--frozen-lockfile, --strict-peer-dependencies]
-            - args: [--global, "@lhci/cli@0.13.x"]
+            - args: [--global, "@lhci/cli@0.11.1"]
 
       - name: Build
         run: pnpm run build
