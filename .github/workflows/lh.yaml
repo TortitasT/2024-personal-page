@@ -18,5 +18,10 @@ jobs:
               args: [--frozen-lockfile, --strict-peer-dependencies]
             - args: [--global, "@lhci/cli@0.13.x"]
 
-      - run: pnpm run build
-      - run: lhci autorun
+      - name: Build
+        run: pnpm run build
+
+      - name: Run LH CI
+        run: lhci autorun
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
