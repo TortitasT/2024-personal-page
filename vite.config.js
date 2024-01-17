@@ -16,5 +16,13 @@ export default defineConfig({
       rehypePlugins: [[rehypeExternalLinks, { target: '_blank' }]],
       jsxImportSource: 'preact',
     }),
+    {
+      name: 'lh-ci-print-ready',
+      configurePreviewServer(server) {
+        return () => {
+          console.log(`\n\n🚀  Lighthouse CI, I am ready!`)
+        }
+      }
+    }
   ],
 })
