@@ -40,11 +40,21 @@ function Menu() {
   }
 
   function openMenu() {
-    gsap.to(menu.current, { opacity: 1, x: 0, duration: DURATION })
+    gsap.to(menu.current, {
+      opacity: 1,
+      x: 0,
+      pointerEvents: 'auto',
+      duration: DURATION,
+    })
   }
 
   function closeMenu() {
-    gsap.to(menu.current, { opacity: 0, x: 100, duration: DURATION })
+    gsap.to(menu.current, {
+      opacity: 0,
+      x: 100,
+      pointerEvents: 'none',
+      duration: DURATION,
+    })
   }
 
   function toggleMenu() {
@@ -59,7 +69,7 @@ function Menu() {
 
     return {
       div: clsx(
-        'p-6 flex justify-end fixed top-0 bottom-0 left-0 right-0 z-20 pointer-events-none',
+        'p-6 flex justify-end items-start fixed top-0 bottom-0 left-0 right-0 z-20 pointer-events-none',
         {
           'mix-blend-exclusion': isHome,
         }
@@ -90,7 +100,7 @@ function Menu() {
       <nav
         ref={menu}
         className={styles.nav}
-        style="transition: none 0s ease 0s; transform: translate(100px); translate: none; rotate: none; scale: none; opacity: 0;"
+        style="transition: none 0s ease 0s; transform: translate(100px); translate: none; rotate: none; scale: none; opacity: 0; pointer-events: none;"
       >
         <a href="/" className="text-white">
           home
