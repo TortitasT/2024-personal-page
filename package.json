@@ -27,6 +27,7 @@
   "devDependencies": {
     "@playwright/test": "^1.40.1",
     "@preact/preset-vite": "^2.5.0",
+    "@tailwindcss/typography": "^0.5.10",
     "@types/node": "^20.10.6",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.52.0",

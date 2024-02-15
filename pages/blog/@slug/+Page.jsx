@@ -30,7 +30,7 @@ function Page() {
         <small className="text-white/80">{post.date}</small>
 
         <article
-          className="mdx"
+          className="prose"
           dangerouslySetInnerHTML={{ __html: post.html }}
         ></article>
       </main>

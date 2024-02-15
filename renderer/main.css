@@ -54,7 +54,7 @@ body {
   overflow-x: hidden;
 }
 
-main > * {
+main>* {
   @apply z-10;
 }
 
@@ -114,30 +114,4 @@ select {
 
 .border-primary {
   @apply border border-gray-200/20 rounded-md;
-}
-
-.mdx h2 {
-  @apply text-2xl md:text-4xl mt-4 mb-3;
-}
-
-.mdx h3 {
-  @apply text-xl md:text-3xl mt-4 mb-3;
-}
-
-.mdx p {
-  @apply mb-0 text-justify text-white/80 mb-2;
-}
-
-.mdx li {
-  @apply text-white/80;
-}
-
-.mdx pre {
-  /* white-space: pre-wrap; */
-  /* word-break: break-word; */
-  @apply max-w-full overflow-x-auto mb-4;
-}
-
-.mdx pre > code {
-  @apply rounded-md;
 }
